@@ -108,8 +108,212 @@
     </style>
 </head>
 <body>
-    <!-- Custom RCSA Copilot Header -->
-        .rcsa-header {
+    <header class="rcsa-header">
+        <div class="rcsa-header-content">
+            <!-- Brand Section -->
+            <div class="rcsa-brand">
+                <a href="/scrDashboard_1LoD" class="rcsa-logo" title="Back to Dashboard">
+                    RC
+                </a>
+                <div class="rcsa-brand-text">
+                    <h1 class="rcsa-title">RCSA Copilot</h1>
+                    <p class="rcsa-subtitle">AI-Powered Risk & Control Self-Assessment</p>
+                    <p class="rcsa-tagline">by CapTech</p>
+                </div>
+            </div>
+            
+            <!-- Help Section -->
+            <div class="wizard-help">
+                <a href="/scrHelp" class="help-btn">
+                    <i class="bi bi-question-circle me-1"></i>
+                    Help
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Assessment Context -->
+    <div class="assessment-context">
+        <div class="context-info">
+            <div class="process-info">
+                <div class="process-icon">
+                    <i class="bi bi-arrow-left-right"></i>
+                </div>
+                <div class="process-details">
+                    <h2 id="process-name">Wire Transfer Assessment</h2>
+                    <p class="process-meta">Retail Banking • Due Today • Last assessed 3 months ago</p>
+                </div>
+            </div>
+            <div class="assessment-meta">
+                <div><strong>Assessment Period:</strong> December 2024</div>
+                <div><strong>Estimated Time:</strong> 8-12 minutes</div>
+                <div><strong>Auto-saved:</strong> <span id="last-saved">Starting...</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="max-width: 1200px;">
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <h3 class="progress-title" id="progress-title">Assessment Progress - Step 1 of 7</h3>
+                <span class="current-step-name" id="current-step-name">Risk Review</span>
+            </div>
+            <div class="progress-indicator">
+                <div class="step" data-step="1">
+                    <div class="step-circle current">1</div>
+                    <div class="step-connector"></div>
+                    <div class="step-label current">Risk Review</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-circle future">2</div>
+                    <div class="step-connector"></div>
+                    <div class="step-label future">Inherent Risk</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-circle future">3</div>
+                    <div class="step-connector"></div>
+                    <div class="step-label future">Control Mapping</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-circle future">4</div>
+                    <div class="step-connector"></div>
+                    <div class="step-label future">Control Effectiveness</div>
+                </div>
+                <div class="step" data-step="5">
+                    <div class="step-circle future">5</div>
+                    <div class="step-connector"></div>
+                    <div class="step-label future">Residual Risk</div>
+                </div>
+                <div class="step" data-step="6">
+                    <div class="step-circle future">6</div>
+                    <div class="step-connector"></div>
+                    <div class="step-label future">Risk Response</div>
+                </div>
+                <div class="step" data-step="7">
+                    <div class="step-circle future">7</div>
+                    <div class="step-connector"></div>
+                    <div class="step-label future">Review & Submit</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wizard Content -->
+        <div class="wizard-content">
+            <!-- Pane 1: Risk Review -->
+            <div class="wizard-pane active" id="pane-1">
+                <div class="pane-header">
+                    <h2 class="pane-title">Risk Review</h2>
+                    <p class="pane-subtitle">Review and select risks for your Wire Transfer process assessment</p>
+                </div>
+
+                <!-- Risk Library -->
+                <div class="risk-library">
+                    <h4 class="mb-3">
+                        <i class="bi bi-shield-exclamation text-primary me-2"></i>
+                        Select Risks for Assessment
+                    </h4>
+                    
+                    <div class="risk-card selected" data-risk="system-failure">
+                        <div class="risk-title">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Wire Transfer System Failure
+                        </div>
+                        <div class="risk-description">
+                            System outages, connectivity issues, or technical failures preventing wire transfer processing or causing processing delays.
+                        </div>
+                        <div class="risk-meta">
+                            <span class="risk-category">Technology Risk</span>
+                            <span>Typically L:3, I:4 | Operational disruption</span>
+                        </div>
+                    </div>
+
+                    <div class="risk-card" data-risk="compliance-violation">
+                        <div class="risk-title">
+                            <i class="bi bi-square me-2"></i>
+                            Regulatory Compliance Violation
+                        </div>
+                        <div class="risk-description">
+                            Failure to comply with AML, BSA, OFAC, or other regulatory requirements for wire transfer reporting and monitoring.
+                        </div>
+                        <div class="risk-meta">
+                            <span class="risk-category">Compliance Risk</span>
+                            <span>Typically L:2, I:5 | Regulatory penalties</span>
+                        </div>
+                    </div>
+
+                    <div class="risk-card" data-risk="processing-error">
+                        <div class="risk-title">
+                            <i class="bi bi-square me-2"></i>
+                            Wire Processing Error
+                        </div>
+                        <div class="risk-description">
+                            Manual processing errors, incorrect account numbers, wrong amounts, or misdirected transfers due to human error.
+                        </div>
+                        <div class="risk-meta">
+                            <span class="risk-category">Operational Risk</span>
+                            <span>Typically L:3, I:3 | Customer impact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Risk Suggestions -->
+                <div class="ai-suggestions">
+                    <div class="ai-header">
+                        <i class="bi bi-robot text-warning"></i>
+                        <span class="ai-title">AI Risk Intelligence</span>
+                        <div class="loading-spinner d-none" id="ai-spinner"></div>
+                        <small class="text-muted ms-2">Analyzing industry trends...</small>
+                    </div>
+                    <p class="mb-3">Based on recent industry events and your organization's profile:</p>
+                    
+                    <div class="ai-risk-suggestion" data-risk="deepfake-voice">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <div class="suggestion-header">
+                                    <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                                    <strong>Deepfake Voice Authorization</strong>
+                                    <span class="badge bg-danger ms-2">TRENDING</span>
+                                </div>
+                                <p class="suggestion-description mb-2">
+                                    AI-generated voice mimicking customers to authorize fraudulent wire transfers. 
+                                    <strong>3 incidents at peer banks this month</strong> with $2.8M in losses.
+                                </p>
+                                <div class="suggestion-meta">
+                                    <span class="text-muted">
+                                        <i class="bi bi-graph-up me-1"></i>
+                                        ↑ 340% increase in reported cases (Dec 2024)
+                                    </span>
+                                    <span class="text-muted ms-3">
+                                        <i class="bi bi-people me-1"></i>
+                                        Added by 12 similar banks
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="suggestion-actions">
+                                <button class="btn btn-success btn-sm" onclick="acceptAISuggestion('deepfake-voice')">
+                                    <i class="bi bi-check me-1"></i>Add
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm ms-1" onclick="modifyAISuggestion('deepfake-voice')">
+                                    <i class="bi bi-pencil me-1"></i>Modify
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm ms-1" onclick="rejectAISuggestion('deepfake-voice')">
+                                    <i class="bi bi-x me-1"></i>Dismiss
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ai-risk-suggestion mt-3" data-risk="realtime-reversal">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="flex-grow-1">
+                                <div class="suggestion-header">
+                                    <i class="bi bi-shield-exclamation text-info me-2"></i>
+                                    <strong>Real-time Payment Reversal Risk</strong>
+                                    <span class="badge bg-info ms-2">REGULATORY</span>
+                                </div>
+                                <p class="suggestion-description mb-2">
+                                    New FedNow reversal requirements may create operational risks in wire transfer processes.
             background: linear-gradient(135deg, var(--captech-primary) 0%, #004499 100%);
             color: white;
             padding: 0;
