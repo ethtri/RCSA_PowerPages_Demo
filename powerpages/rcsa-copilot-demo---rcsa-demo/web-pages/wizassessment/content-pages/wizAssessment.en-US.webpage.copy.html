@@ -12,9 +12,13 @@
     <!-- RCSA Design System -->
     <link rel="stylesheet" href="rcsa-styles.css">
     
-    <!-- Fallback styles in case CSS doesn't load -->
+    <!-- RCSA Wizard Styles -->
+    <link rel="stylesheet" href="css/rcsa-wizard-core.css">
+    <link rel="stylesheet" href="css/rcsa-wizard-components.css">
+    
+    <!-- Minimal fallback styles in case CSS doesn't load -->
     <style>
-        /* Critical fallback styles for residual risk assessment */
+        /* Critical fallback styles for core functionality */
         .residual-assessment-progress {
             background: linear-gradient(135deg, #F8FBFF 0%, #EDF4FF 100%);
             border: 1px solid #B3D7FF;
@@ -87,7 +91,9 @@
         }
     </style>
     
+    <!-- All other styles now loaded from external CSS files -->
     <style>
+        /* Emergency fallback for critical variables only */
         :root {
             --captech-primary: #0066CC;
             --captech-success: #0D7F3F;
@@ -98,26 +104,11 @@
             --captech-orange: #FEA002;
         }
         
-        /* Hide default Power Pages navigation */
-        .navbar,
-        .header,
-        .site-header,
-        .page-header,
-        div[role="navigation"],
-        nav[role="navigation"],
-        .breadcrumb {
-            display: none !important;
-        }
-        
-        body {
-            background-color: var(--captech-light);
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
-            padding-top: 90px;
-        }
-        
-        /* Custom RCSA Copilot Header */
+        /* All other styles moved to external CSS files for better maintainability */
+    </style>
+</head>
+<body>
+    <!-- Custom RCSA Copilot Header -->
         .rcsa-header {
             background: linear-gradient(135deg, var(--captech-primary) 0%, #004499 100%);
             color: white;
