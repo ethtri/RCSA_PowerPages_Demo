@@ -1,0 +1,1175 @@
+<!-- Include Bootstrap 5 and Modern Enhancements -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="/bootstrap-5-upgrades.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/modern-interactions.js"></script>
+
+<style>
+/* Enhanced Control Mapping Styles with Coverage Allocation */
+.control-header {
+  background: linear-gradient(135deg, #fd7e14 0%, #ffc107 100%);
+  color: white;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.progress-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.progress-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #fd7e14, #ffc107);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.risk-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.risk-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.risk-card.complete {
+  border-color: #28a745;
+  background: #f8fff9;
+}
+
+.risk-card.partial {
+  border-color: #ffc107;
+  background: #fffbf0;
+}
+
+.risk-card.over-allocated {
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.risk-card.empty {
+  border-color: #e9ecef;
+  background: white;
+}
+
+/* Coverage Progress Meter */
+.coverage-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.coverage-meter {
+  flex: 1;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.coverage-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.coverage-fill.complete {
+  background: linear-gradient(90deg, #28a745, #20c997);
+}
+
+.coverage-fill.partial {
+  background: linear-gradient(90deg, #ffc107, #fd7e14);
+}
+
+.coverage-fill.over-allocated {
+  background: linear-gradient(90deg, #dc3545, #c82333);
+  animation: pulse-warning 2s infinite;
+}
+
+.coverage-text {
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 80px;
+}
+
+.coverage-text.complete { color: #28a745; }
+.coverage-text.partial { color: #fd7e14; }
+.coverage-text.over-allocated { color: #dc3545; }
+
+/* Control Allocation Interface */
+.control-allocation {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.control-allocation:hover {
+  background: #e9ecef;
+}
+
+.control-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.control-info h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.control-info .small {
+  color: #6c757d;
+}
+
+.allocation-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.coverage-slider {
+  flex: 1;
+  min-width: 120px;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #e9ecef;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.coverage-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fd7e14;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(253, 126, 20, 0.3);
+  transition: all 0.2s ease;
+}
+
+.coverage-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(253, 126, 20, 0.4);
+}
+
+.coverage-input {
+  width: 70px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+
+.preset-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.preset-btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid #e9ecef;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-btn:hover {
+  background: #fd7e14;
+  color: white;
+  border-color: #fd7e14;
+}
+
+.remove-control-btn {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.remove-control-btn:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* Validation Feedback */
+.validation-feedback {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.validation-feedback.success {
+  background: #d4f6d4;
+  border-left: 4px solid #28a745;
+  color: #1e7e34;
+}
+
+.validation-feedback.warning {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  color: #856404;
+}
+
+.validation-feedback.danger {
+  background: #f8d7da;
+  border-left: 4px solid #dc3545;
+  color: #721c24;
+}
+
+/* Quick Actions */
+.quick-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.quick-action-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border: 1px solid #e9ecef;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quick-action-btn:hover {
+  background: #fd7e14;
+  color: white;
+  border-color: #fd7e14;
+}
+
+/* Modal Enhancements */
+.modal-lg {
+  max-width: 800px;
+}
+
+.control-option {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-option:hover {
+  border-color: #fd7e14;
+  background: #fff8f0;
+}
+
+.control-option.selected {
+  border-color: #fd7e14;
+  background: #fff8f0;
+}
+
+/* Animations */
+@keyframes pulse-warning {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Filter tabs */
+.filter-tabs {
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filter-tab {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  margin: 0 0.25rem;
+}
+
+.filter-tab.active {
+  background: #fd7e14;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .control-header {
+    padding: 2rem 0;
+  }
+  
+  .risk-card {
+    padding: 1rem;
+  }
+  
+  .allocation-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .coverage-slider {
+    min-width: 100%;
+  }
+  
+  .preset-buttons {
+    justify-content: center;
+  }
+}
+</style>
+
+<!-- Enhanced Control Mapping with Coverage Allocation -->
+<div class="container-fluid">
+  
+  <!-- Page Header -->
+  <div class="control-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h1 class="display-5 fw-bold mb-2">Control Coverage Allocation</h1>
+          <p class="lead mb-0">Allocate percentage coverage for each control to ensure 100% risk mitigation</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <div class="step-indicator bg-white bg-opacity-25 rounded-pill px-3 py-1">
+            <i class="bi bi-3-circle me-2"></i>
+            Step 3 of 5
+          </div>
+          <div class="h5 mt-2 mb-0">Coverage Allocation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Summary -->
+  <div class="container">
+    <div class="progress-card">
+      <div class="row align-items-center">
+        <div class="col-md-2">
+          <div class="progress-circle mx-auto" id="progressCircle">
+            0/3
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4 class="fw-bold mb-2">Coverage Progress</h4>
+          <p class="text-muted mb-0">Track control coverage allocation across all identified risks (100% required per risk)</p>
+        </div>
+        <div class="col-md-4">
+          <div class="row text-center">
+            <div class="col-4">
+              <div class="h3 fw-bold text-primary" id="totalRisks">3</div>
+              <div class="small text-muted">Total Risks</div>
+            </div>
+            <div class="col-4">
+              <div class="h3 fw-bold text-success" id="completeRisks">0</div>
+              <div class="small text-muted">Complete</div>
+            </div>
+            <div class="col-4">
+              <div class="h3 fw-bold text-warning" id="pendingRisks">3</div>
+              <div class="small text-muted">Pending</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Tabs -->
+  <div class="container">
+    <div class="filter-tabs text-center">
+      <button class="filter-tab active" onclick="filterRisks('all')" id="filterAll">
+        <i class="bi bi-list me-1"></i>All Risks
+      </button>
+      <button class="filter-tab" onclick="filterRisks('pending')" id="filterPending">
+        <i class="bi bi-clock me-1"></i>Pending
+      </button>
+      <button class="filter-tab" onclick="filterRisks('complete')" id="filterComplete">
+        <i class="bi bi-check-circle me-1"></i>Complete
+      </button>
+      <button class="filter-tab" onclick="filterRisks('high')" id="filterHigh">
+        <i class="bi bi-shield-exclamation me-1"></i>High Risk
+      </button>
+    </div>
+  </div>
+
+  <!-- Risk Cards Grid -->
+  <div class="container">
+    <div class="row g-4" id="riskCardsGrid">
+      
+      <!-- Risk 1 -->
+      <div class="col-lg-12">
+        <div class="risk-card empty" data-risk-id="risk-1" data-risk-level="critical">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+              <h5 class="fw-bold mb-1">Credit Default Risk</h5>
+              <span class="badge bg-danger">Critical</span>
+            </div>
+            <div class="text-end">
+              <button class="btn btn-outline-primary btn-sm" onclick="openControlMapping('risk-1', 'Credit Default Risk')">
+                <i class="bi bi-plus-circle me-1"></i>Add Controls
+              </button>
+            </div>
+          </div>
+          
+          <p class="text-muted mb-3">Risk of borrower defaulting on loan obligations due to inadequate credit assessment processes.</p>
+          
+          <!-- Coverage Status -->
+          <div class="coverage-status">
+            <span class="small fw-bold">Coverage:</span>
+            <div class="coverage-meter">
+              <div class="coverage-fill" style="width: 0%" id="coverage-fill-risk-1"></div>
+            </div>
+            <span class="coverage-text" id="coverage-text-risk-1">0%</span>
+          </div>
+          
+          <!-- Validation Feedback -->
+          <div class="validation-feedback danger" id="validation-risk-1">
+            <i class="bi bi-exclamation-circle"></i>
+            No controls allocated. Risk is unmitigated.
+          </div>
+          
+          <!-- Controls Container -->
+          <div class="controls-container" id="controls-risk-1">
+            <div class="text-muted text-center py-3">
+              <i class="bi bi-plus-circle display-6 opacity-25"></i>
+              <p class="mb-0">Click "Add Controls" to start allocating coverage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Risk 2 -->
+      <div class="col-lg-12">
+        <div class="risk-card empty" data-risk-id="risk-2" data-risk-level="high">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+              <h5 class="fw-bold mb-1">Operational Process Failure</h5>
+              <span class="badge bg-warning text-dark">High</span>
+            </div>
+            <div class="text-end">
+              <button class="btn btn-outline-primary btn-sm" onclick="openControlMapping('risk-2', 'Operational Process Failure')">
+                <i class="bi bi-plus-circle me-1"></i>Add Controls
+              </button>
+            </div>
+          </div>
+          
+          <p class="text-muted mb-3">Risk of system failures or human errors disrupting critical business operations and service delivery.</p>
+          
+          <!-- Coverage Status -->
+          <div class="coverage-status">
+            <span class="small fw-bold">Coverage:</span>
+            <div class="coverage-meter">
+              <div class="coverage-fill" style="width: 0%" id="coverage-fill-risk-2"></div>
+            </div>
+            <span class="coverage-text" id="coverage-text-risk-2">0%</span>
+          </div>
+          
+          <!-- Validation Feedback -->
+          <div class="validation-feedback danger" id="validation-risk-2">
+            <i class="bi bi-exclamation-circle"></i>
+            No controls allocated. Risk is unmitigated.
+          </div>
+          
+          <!-- Controls Container -->
+          <div class="controls-container" id="controls-risk-2">
+            <div class="text-muted text-center py-3">
+              <i class="bi bi-plus-circle display-6 opacity-25"></i>
+              <p class="mb-0">Click "Add Controls" to start allocating coverage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Risk 3 -->
+      <div class="col-lg-12">
+        <div class="risk-card empty" data-risk-id="risk-3" data-risk-level="medium">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+              <h5 class="fw-bold mb-1">Regulatory Compliance Gap</h5>
+              <span class="badge bg-info">Medium</span>
+            </div>
+            <div class="text-end">
+              <button class="btn btn-outline-primary btn-sm" onclick="openControlMapping('risk-3', 'Regulatory Compliance Gap')">
+                <i class="bi bi-plus-circle me-1"></i>Add Controls
+              </button>
+            </div>
+          </div>
+          
+          <p class="text-muted mb-3">Risk of non-compliance with regulatory requirements leading to penalties and reputational damage.</p>
+          
+          <!-- Coverage Status -->
+          <div class="coverage-status">
+            <span class="small fw-bold">Coverage:</span>
+            <div class="coverage-meter">
+              <div class="coverage-fill" style="width: 0%" id="coverage-fill-risk-3"></div>
+            </div>
+            <span class="coverage-text" id="coverage-text-risk-3">0%</span>
+          </div>
+          
+          <!-- Validation Feedback -->
+          <div class="validation-feedback danger" id="validation-risk-3">
+            <i class="bi bi-exclamation-circle"></i>
+            No controls allocated. Risk is unmitigated.
+          </div>
+          
+          <!-- Controls Container -->
+          <div class="controls-container" id="controls-risk-3">
+            <div class="text-muted text-center py-3">
+              <i class="bi bi-plus-circle display-6 opacity-25"></i>
+              <p class="mb-0">Click "Add Controls" to start allocating coverage</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="container">
+    <div class="row mt-4 mb-4">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+          <button class="btn btn-outline-secondary btn-lg" onclick="goBack()">
+            <i class="bi bi-arrow-left me-2"></i>
+            Back to Risk Identification
+          </button>
+          <button class="btn btn-warning btn-lg" id="continueBtn" onclick="continueToNextStep()" disabled>
+            Continue to Residual Assessment
+            <i class="bi bi-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Enhanced Control Selection Modal with Coverage Allocation -->
+<div class="modal fade" id="controlMappingModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Allocate Control Coverage</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <h6 class="fw-bold" id="modalRiskTitle">Risk Title</h6>
+          <p class="text-muted" id="modalRiskDescription">Risk description</p>
+        </div>
+        
+        <!-- Current Coverage Status -->
+        <div class="coverage-status mb-3">
+          <span class="fw-bold">Total Coverage:</span>
+          <div class="coverage-meter">
+            <div class="coverage-fill" style="width: 0%" id="modal-coverage-fill"></div>
+          </div>
+          <span class="coverage-text" id="modal-coverage-text">0%</span>
+        </div>
+        
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Search available controls..." id="controlSearch">
+        </div>
+        
+        <div class="control-options" id="controlOptions">
+          <div class="control-option" data-control-id="ctrl-1">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ctrl-1">
+              <label class="form-check-label" for="ctrl-1">
+                <strong>Segregation of Duties</strong> <span class="badge bg-success">Preventive</span><br>
+                <small class="text-muted">Ensures critical processes require multiple approvals • Effectiveness: High</small>
+              </label>
+            </div>
+          </div>
+          
+          <div class="control-option" data-control-id="ctrl-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ctrl-2">
+              <label class="form-check-label" for="ctrl-2">
+                <strong>Regular System Backups</strong> <span class="badge bg-info">Detective</span><br>
+                <small class="text-muted">Automated daily backups of critical systems and data • Effectiveness: Medium</small>
+              </label>
+            </div>
+          </div>
+          
+          <div class="control-option" data-control-id="ctrl-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ctrl-3">
+              <label class="form-check-label" for="ctrl-3">
+                <strong>Compliance Monitoring</strong> <span class="badge bg-info">Detective</span><br>
+                <small class="text-muted">Regular audits and compliance checks • Effectiveness: High</small>
+              </label>
+            </div>
+          </div>
+          
+          <div class="control-option" data-control-id="ctrl-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ctrl-4">
+              <label class="form-check-label" for="ctrl-4">
+                <strong>Access Controls</strong> <span class="badge bg-success">Preventive</span><br>
+                <small class="text-muted">Role-based access to sensitive systems and data • Effectiveness: High</small>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="addSelectedControls()">Add Selected Controls</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Enhanced JavaScript with Coverage Allocation Logic -->
+<script>
+let currentRiskId = null;
+let riskCoverageData = {};
+
+const controlData = {
+  'ctrl-1': { 
+    name: 'Segregation of Duties', 
+    description: 'Ensures critical processes require multiple approvals',
+    type: 'Preventive',
+    effectiveness: 'High'
+  },
+  'ctrl-2': { 
+    name: 'Regular System Backups', 
+    description: 'Automated daily backups of critical systems and data',
+    type: 'Detective',
+    effectiveness: 'Medium'
+  },
+  'ctrl-3': { 
+    name: 'Compliance Monitoring', 
+    description: 'Regular audits and compliance checks',
+    type: 'Detective',
+    effectiveness: 'High'
+  },
+  'ctrl-4': { 
+    name: 'Access Controls', 
+    description: 'Role-based access to sensitive systems and data',
+    type: 'Preventive',
+    effectiveness: 'High'
+  }
+};
+
+// Initialize risk coverage data structure
+function initializeRiskCoverage() {
+  ['risk-1', 'risk-2', 'risk-3'].forEach(riskId => {
+    if (!riskCoverageData[riskId]) {
+      riskCoverageData[riskId] = {
+        controls: {},
+        totalCoverage: 0
+      };
+    }
+  });
+}
+
+// Coverage Management Class
+class CoverageManager {
+  constructor(riskId) {
+    this.riskId = riskId;
+  }
+  
+  updateControlCoverage(controlId, percentage) {
+    if (!riskCoverageData[this.riskId]) {
+      riskCoverageData[this.riskId] = { controls: {}, totalCoverage: 0 };
+    }
+    
+    riskCoverageData[this.riskId].controls[controlId] = percentage;
+    this.recalculateTotal();
+    this.updateVisuals();
+    this.validateCoverage();
+  }
+  
+  removeControl(controlId) {
+    if (riskCoverageData[this.riskId] && riskCoverageData[this.riskId].controls[controlId]) {
+      delete riskCoverageData[this.riskId].controls[controlId];
+      this.recalculateTotal();
+      this.updateVisuals();
+      this.validateCoverage();
+      this.renderControls();
+    }
+  }
+  
+  recalculateTotal() {
+    const controls = riskCoverageData[this.riskId].controls;
+    this.totalCoverage = Object.values(controls).reduce((sum, percentage) => sum + percentage, 0);
+    riskCoverageData[this.riskId].totalCoverage = this.totalCoverage;
+  }
+  
+  updateVisuals() {
+    const fillElement = document.getElementById(`coverage-fill-${this.riskId}`);
+    const textElement = document.getElementById(`coverage-text-${this.riskId}`);
+    
+    if (fillElement && textElement) {
+      fillElement.style.width = `${Math.min(this.totalCoverage, 100)}%`;
+      textElement.textContent = `${this.totalCoverage}%`;
+      
+      // Update fill color based on coverage
+      fillElement.className = 'coverage-fill';
+      textElement.className = 'coverage-text';
+      
+      if (this.totalCoverage === 100) {
+        fillElement.classList.add('complete');
+        textElement.classList.add('complete');
+      } else if (this.totalCoverage > 100) {
+        fillElement.classList.add('over-allocated');
+        textElement.classList.add('over-allocated');
+      } else if (this.totalCoverage > 0) {
+        fillElement.classList.add('partial');
+        textElement.classList.add('partial');
+      }
+    }
+  }
+  
+  validateCoverage() {
+    const validationElement = document.getElementById(`validation-${this.riskId}`);
+    const riskCard = document.querySelector(`[data-risk-id="${this.riskId}"]`);
+    
+    if (!validationElement || !riskCard) return;
+    
+    // Update risk card classes
+    riskCard.className = 'risk-card';
+    riskCard.classList.add(riskCard.dataset.riskLevel);
+    
+    if (this.totalCoverage === 100) {
+      validationElement.className = 'validation-feedback success';
+      validationElement.innerHTML = '<i class="bi bi-check-circle"></i>Perfect! Risk fully covered at 100%.';
+      riskCard.classList.add('complete');
+    } else if (this.totalCoverage > 100) {
+      validationElement.className = 'validation-feedback danger';
+      validationElement.innerHTML = `<i class="bi bi-exclamation-triangle"></i>Over-allocated by ${this.totalCoverage - 100}%. Please reduce coverage.`;
+      riskCard.classList.add('over-allocated');
+    } else if (this.totalCoverage > 0) {
+      validationElement.className = 'validation-feedback warning';
+      validationElement.innerHTML = `<i class="bi bi-clock"></i>${100 - this.totalCoverage}% coverage remaining. Add more controls or increase percentages.`;
+      riskCard.classList.add('partial');
+    } else {
+      validationElement.className = 'validation-feedback danger';
+      validationElement.innerHTML = '<i class="bi bi-exclamation-circle"></i>No controls allocated. Risk is unmitigated.';
+      riskCard.classList.add('empty');
+    }
+    
+    updateGlobalProgress();
+  }
+  
+  renderControls() {
+    const container = document.getElementById(`controls-${this.riskId}`);
+    if (!container) return;
+    
+    const controls = riskCoverageData[this.riskId].controls;
+    
+    if (Object.keys(controls).length === 0) {
+      container.innerHTML = `
+        <div class="text-muted text-center py-3">
+          <i class="bi bi-plus-circle display-6 opacity-25"></i>
+          <p class="mb-0">Click "Add Controls" to start allocating coverage</p>
+        </div>
+      `;
+      return;
+    }
+    
+    let html = '';
+    
+    // Quick Actions
+    html += `
+      <div class="quick-actions">
+        <button class="quick-action-btn" onclick="distributeEvenly('${this.riskId}')">
+          <i class="bi bi-distribute-horizontal"></i>Distribute Evenly
+        </button>
+        <button class="quick-action-btn" onclick="suggestOptimal('${this.riskId}')">
+          <i class="bi bi-lightbulb"></i>AI Suggest
+        </button>
+        <button class="quick-action-btn" onclick="clearAll('${this.riskId}')">
+          <i class="bi bi-arrow-clockwise"></i>Reset
+        </button>
+      </div>
+    `;
+    
+    // Render each control allocation
+    for (const [controlId, percentage] of Object.entries(controls)) {
+      const control = controlData[controlId];
+      if (!control) continue;
+      
+      html += `
+        <div class="control-allocation">
+          <div class="control-header-row">
+            <div class="control-info">
+              <h6>${control.name}</h6>
+              <div class="small">${control.type} • ${control.effectiveness} Effectiveness</div>
+            </div>
+            <button class="remove-control-btn" onclick="removeControl('${this.riskId}', '${controlId}')" title="Remove Control">
+              <i class="bi bi-x-circle"></i>
+            </button>
+          </div>
+          
+          <div class="allocation-controls">
+            <input type="range" 
+                   class="coverage-slider" 
+                   min="0" max="100" 
+                   value="${percentage}" 
+                   onchange="updateCoverage('${this.riskId}', '${controlId}', this.value)"
+                   oninput="updateCoverage('${this.riskId}', '${controlId}', this.value)">
+            
+            <input type="number" 
+                   class="coverage-input" 
+                   min="0" max="100" 
+                   value="${percentage}" 
+                   onchange="updateCoverage('${this.riskId}', '${controlId}', this.value)">
+            <span>%</span>
+            
+            <div class="preset-buttons">
+              <button class="preset-btn" onclick="setCoverage('${this.riskId}', '${controlId}', 25)">25%</button>
+              <button class="preset-btn" onclick="setCoverage('${this.riskId}', '${controlId}', 50)">50%</button>
+              <button class="preset-btn" onclick="setCoverage('${this.riskId}', '${controlId}', 75)">75%</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    container.innerHTML = html;
+  }
+}
+
+// Global Functions
+function openControlMapping(riskId, riskTitle) {
+  currentRiskId = riskId;
+  document.getElementById('modalRiskTitle').textContent = riskTitle;
+  
+  // Clear previous selections
+  document.querySelectorAll('#controlOptions input[type="checkbox"]').forEach(cb => {
+    cb.checked = false;
+  });
+  
+  // Update modal coverage display
+  updateModalCoverage();
+  
+  const modal = new bootstrap.Modal(document.getElementById('controlMappingModal'));
+  modal.show();
+}
+
+function addSelectedControls() {
+  if (!currentRiskId) return;
+  
+  const selectedControls = [];
+  document.querySelectorAll('#controlOptions input[type="checkbox"]:checked').forEach(cb => {
+    selectedControls.push(cb.id);
+  });
+  
+  if (selectedControls.length === 0) {
+    if (typeof modernInteractions !== 'undefined') {
+      modernInteractions.showWarning('No Controls Selected', 'Please select at least one control to add');
+    }
+    return;
+  }
+  
+  const manager = new CoverageManager(currentRiskId);
+  
+  // Add controls with suggested initial percentages
+  const suggestedPercentage = Math.floor(100 / selectedControls.length);
+  const remainder = 100 % selectedControls.length;
+  
+  selectedControls.forEach((controlId, index) => {
+    const percentage = suggestedPercentage + (index < remainder ? 1 : 0);
+    manager.updateControlCoverage(controlId, percentage);
+  });
+  
+  manager.renderControls();
+  
+  const modal = bootstrap.Modal.getInstance(document.getElementById('controlMappingModal'));
+  modal.hide();
+  
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showSuccess('Controls Added', `Added ${selectedControls.length} controls with suggested allocation`);
+  }
+}
+
+function updateCoverage(riskId, controlId, value) {
+  const percentage = parseInt(value) || 0;
+  const manager = new CoverageManager(riskId);
+  manager.updateControlCoverage(controlId, percentage);
+}
+
+function setCoverage(riskId, controlId, percentage) {
+  const manager = new CoverageManager(riskId);
+  manager.updateControlCoverage(controlId, percentage);
+  
+  // Update the input fields
+  const slider = document.querySelector(`input[onchange*="'${controlId}'"]`);
+  const input = document.querySelector(`input[type="number"][onchange*="'${controlId}'"]`);
+  if (slider) slider.value = percentage;
+  if (input) input.value = percentage;
+}
+
+function removeControl(riskId, controlId) {
+  const manager = new CoverageManager(riskId);
+  manager.removeControl(controlId);
+  
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showInfo('Control Removed', 'Control allocation removed');
+  }
+}
+
+function distributeEvenly(riskId) {
+  const controls = Object.keys(riskCoverageData[riskId].controls);
+  if (controls.length === 0) return;
+  
+  const evenPercentage = Math.floor(100 / controls.length);
+  const remainder = 100 % controls.length;
+  
+  const manager = new CoverageManager(riskId);
+  controls.forEach((controlId, index) => {
+    const percentage = evenPercentage + (index < remainder ? 1 : 0);
+    manager.updateControlCoverage(controlId, percentage);
+  });
+  
+  manager.renderControls();
+  
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showSuccess('Distributed Evenly', 'Coverage allocated evenly across all controls');
+  }
+}
+
+function suggestOptimal(riskId) {
+  const controls = Object.keys(riskCoverageData[riskId].controls);
+  if (controls.length === 0) return;
+  
+  // AI-like suggestion based on control effectiveness
+  const effectivenessWeights = {
+    'High': 3,
+    'Medium': 2,
+    'Low': 1
+  };
+  
+  let totalWeight = 0;
+  const controlWeights = {};
+  
+  controls.forEach(controlId => {
+    const control = controlData[controlId];
+    const weight = effectivenessWeights[control.effectiveness] || 1;
+    controlWeights[controlId] = weight;
+    totalWeight += weight;
+  });
+  
+  const manager = new CoverageManager(riskId);
+  let remainingPercentage = 100;
+  
+  controls.forEach((controlId, index) => {
+    const weight = controlWeights[controlId];
+    let percentage;
+    
+    if (index === controls.length - 1) {
+      // Last control gets remaining percentage to ensure 100% total
+      percentage = remainingPercentage;
+    } else {
+      percentage = Math.round((weight / totalWeight) * 100);
+      remainingPercentage -= percentage;
+    }
+    
+    manager.updateControlCoverage(controlId, percentage);
+  });
+  
+  manager.renderControls();
+  
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showSuccess('AI Suggestion Applied', 'Coverage allocated based on control effectiveness');
+  }
+}
+
+function clearAll(riskId) {
+  riskCoverageData[riskId].controls = {};
+  const manager = new CoverageManager(riskId);
+  manager.recalculateTotal();
+  manager.updateVisuals();
+  manager.validateCoverage();
+  manager.renderControls();
+  
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showInfo('Coverage Cleared', 'All control allocations reset');
+  }
+}
+
+function updateModalCoverage() {
+  if (!currentRiskId) return;
+  
+  const totalCoverage = riskCoverageData[currentRiskId].totalCoverage || 0;
+  const fillElement = document.getElementById('modal-coverage-fill');
+  const textElement = document.getElementById('modal-coverage-text');
+  
+  if (fillElement && textElement) {
+    fillElement.style.width = `${Math.min(totalCoverage, 100)}%`;
+    textElement.textContent = `${totalCoverage}%`;
+    
+    fillElement.className = 'coverage-fill';
+    textElement.className = 'coverage-text';
+    
+    if (totalCoverage === 100) {
+      fillElement.classList.add('complete');
+      textElement.classList.add('complete');
+    } else if (totalCoverage > 100) {
+      fillElement.classList.add('over-allocated');
+      textElement.classList.add('over-allocated');
+    } else if (totalCoverage > 0) {
+      fillElement.classList.add('partial');
+      textElement.classList.add('partial');
+    }
+  }
+}
+
+function updateGlobalProgress() {
+  const totalRisks = 3;
+  let completeRisks = 0;
+  
+  ['risk-1', 'risk-2', 'risk-3'].forEach(riskId => {
+    const totalCoverage = riskCoverageData[riskId].totalCoverage || 0;
+    if (totalCoverage === 100) {
+      completeRisks++;
+    }
+  });
+  
+  const pendingRisks = totalRisks - completeRisks;
+  
+  document.getElementById('progressCircle').textContent = `${completeRisks}/${totalRisks}`;
+  document.getElementById('completeRisks').textContent = completeRisks;
+  document.getElementById('pendingRisks').textContent = pendingRisks;
+  
+  // Enable continue button if all risks are at 100%
+  const continueBtn = document.getElementById('continueBtn');
+  continueBtn.disabled = completeRisks < totalRisks;
+  
+  if (completeRisks === totalRisks) {
+    continueBtn.classList.remove('btn-warning');
+    continueBtn.classList.add('btn-success');
+    continueBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Continue to Residual Assessment<i class="bi bi-arrow-right ms-2"></i>';
+  } else {
+    continueBtn.classList.remove('btn-success');
+    continueBtn.classList.add('btn-warning');
+    continueBtn.innerHTML = `${pendingRisks} risks need 100% coverage <i class="bi bi-arrow-right ms-2"></i>`;
+  }
+}
+
+function filterRisks(filter) {
+  // Update active tab
+  document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+  document.getElementById(`filter${filter.charAt(0).toUpperCase() + filter.slice(1)}`).classList.add('active');
+  
+  // Filter risk cards
+  document.querySelectorAll('.risk-card').forEach(card => {
+    const riskId = card.dataset.riskId;
+    const riskLevel = card.dataset.riskLevel;
+    const totalCoverage = riskCoverageData[riskId].totalCoverage || 0;
+    const isComplete = totalCoverage === 100;
+    
+    let show = false;
+    switch(filter) {
+      case 'all':
+        show = true;
+        break;
+      case 'complete':
+        show = isComplete;
+        break;
+      case 'pending':
+        show = !isComplete;
+        break;
+      case 'high':
+        show = riskLevel === 'critical' || riskLevel === 'high';
+        break;
+    }
+    
+    card.closest('.col-lg-12').style.display = show ? 'block' : 'none';
+  });
+}
+
+function continueToNextStep() {
+  const completeRisks = ['risk-1', 'risk-2', 'risk-3'].filter(riskId => 
+    riskCoverageData[riskId].totalCoverage === 100
+  ).length;
+  
+  if (completeRisks < 3) {
+    if (typeof modernInteractions !== 'undefined') {
+      modernInteractions.showError('Incomplete Coverage', 'All risks must have 100% coverage before continuing');
+    }
+    return;
+  }
+  
+  // Show loading state
+  const btn = document.getElementById('continueBtn');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Loading...';
+  btn.disabled = true;
+  
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showSuccess('All Risks Covered!', 'Proceeding to Residual Risk Assessment...');
+  }
+  
+  setTimeout(() => {
+    window.location.href = '/Residual-Risk-Assessment';
+  }, 2000);
+}
+
+function goBack() {
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showInfo('Returning to Risk Identification', 'Redirecting...');
+  }
+  
+  setTimeout(() => {
+    window.location.href = '/Risk-Identification-V2';
+  }, 1000);
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('✅ Enhanced Control Coverage Allocation loaded');
+  initializeRiskCoverage();
+  updateGlobalProgress();
+  
+  if (typeof modernInteractions !== 'undefined') {
+    modernInteractions.showSuccess('Coverage Allocation Ready', 'Allocate 100% coverage for each risk to proceed');
+  }
+});
+</script>

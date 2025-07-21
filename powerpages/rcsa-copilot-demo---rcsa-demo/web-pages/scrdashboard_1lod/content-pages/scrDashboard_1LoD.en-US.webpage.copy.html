@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCSA Copilot Dashboard</title>
+    
+    <!-- Bootstrap 5 Foundation -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- RCSA Design System -->
+    <link rel="stylesheet" href="rcsa-styles.css">
+    
+    <!-- Dashboard Specific Styles -->
+    <style>
+        :root {
+            --captech-primary: #0066CC;
+            --captech-success: #0D7F3F;
+            --captech-warning: #CC6600;
+            --captech-danger: #CC0000;
+            --captech-light: #F5F5F5;
+            --captech-border: #E5E5E5;
+            --captech-orange: #FEA002;
+        }
+        
+        /* Hide default Power Pages navigation */
+        .navbar,
+        .header,
+        .site-header,
+        .page-header,
+        div[role="navigation"],
+        nav[role="navigation"],
+        .breadcrumb {
+            display: none !important;
+        }
+        
+        body {
+            background-color: var(--captech-light);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Custom RCSA Copilot Header */
+        .rcsa-header {
+            background: linear-gradient(135deg, var(--captech-primary) 0%, #004499 100%);
+            color: white;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .rcsa-header-content {
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .rcsa-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .rcsa-logo {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--captech-orange) 0%, #FF8C00 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .rcsa-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(254,160,2,0.3);
+        }
+        
+        .rcsa-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .rcsa-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .rcsa-subtitle {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+            font-weight: 400;
+        }
+        
+        .rcsa-tagline {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .rcsa-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .rcsa-nav-link {
+            padding: 0.75rem 1rem;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .rcsa-nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .rcsa-nav-link.active {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border-color: rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+        
+        .rcsa-user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .rcsa-notifications {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .notification-badge {
+            background-color: var(--captech-danger);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            border: 2px solid white;
+        }
+        
+        .rcsa-user {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .rcsa-user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--captech-orange) 0%, #FF8C00 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 0.875rem;
+        }
+        
+        .rcsa-user-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .rcsa-user-name {
+            font-weight: 600;
+            color: white;
+            margin: 0;
+            font-size: 0.875rem;
+        }
+        
+        .rcsa-user-role {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+        }
+        
+        /* Adjust body padding to account for fixed header */
+        body {
+            padding-top: 90px;
+        }
+        
+        .main-content {
+            padding-top: 1rem;
+        }
+        
+        .greeting-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--captech-primary);
+        }
+        
+        .quick-action-btn {
+            background: white;
+            border: 2px solid var(--captech-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .quick-action-btn:hover {
+            border-color: var(--captech-primary);
+            box-shadow: 0 6px 12px rgba(0,102,204,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .quick-action-btn.danger {
+            background: linear-gradient(135deg, #fff 0%, #fff8f8 100%);
+        }
+        
+        .quick-action-btn.danger:hover {
+            border-color: var(--captech-danger);
+            box-shadow: 0 6px 12px rgba(204,0,0,0.15);
+        }
+        
+        .priority-task-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .priority-task-card:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transform: translateX(4px);
+        }
+        
+        .priority-task-card.urgent {
+            border-left-color: var(--captech-danger);
+        }
+        
+        .priority-task-card.high {
+            border-left-color: var(--captech-warning);
+        }
+        
+        .priority-task-card.medium {
+            border-left-color: var(--captech-primary);
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--captech-border);
+        }
+        
+        .metric-card:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--captech-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .heat-map-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+            background: var(--captech-border);
+            border-radius: 8px;
+            padding: 8px;
+        }
+        
+        .heat-cell {
+            aspect-ratio: 1;
+            background: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .heat-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .heat-cell.risk-low { background-color: #0D7F3F; color: white; }
+        .heat-cell.risk-medium { background-color: #FFC107; color: white; }
+        .heat-cell.risk-high { background-color: #CC6600; color: white; }
+        .heat-cell.risk-critical { background-color: #CC0000; color: white; }
+        
+        .assessment-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--captech-border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .assessment-card:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-color: var(--captech-primary);
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-pending { background-color: #E3F2FD; color: #1976D2; }
+        .status-progress { background-color: #FFF3E0; color: #F57C00; }
+        .status-complete { background-color: #E8F5E8; color: #2E7D32; }
+        .status-overdue { background-color: #FFEBEE; color: #D32F2F; }
+        
+        .ai-insight {
+            background: linear-gradient(135deg, #F0F7FF 0%, #E3F2FD 100%);
+            border: 1px solid #BBDEFB;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .trend-indicator {
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        
+        .trend-up { background-color: #E8F5E8; color: #2E7D32; }
+        .trend-down { background-color: #FFEBEE; color: #D32F2F; }
+        .trend-stable { background-color: #F5F5F5; color: #666; }
+        
+        .performance-stat {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .loading-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2B2B2B;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .rcsa-header-content {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .rcsa-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .rcsa-user {
+                order: -1;
+            }
+            
+            body {
+                padding-top: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom RCSA Copilot Header -->
+    <header class="rcsa-header">
+        <div class="rcsa-header-content">
+            <!-- Brand Section -->
+            <div class="rcsa-brand">
+                <a href="/" class="rcsa-logo" title="RCSA Copilot Home">
+                    RC
+                </a>
+                <div class="rcsa-brand-text">
+                    <h1 class="rcsa-title">RCSA Copilot</h1>
+                    <p class="rcsa-subtitle">AI-Powered Risk & Control Self-Assessment</p>
+                    <p class="rcsa-tagline">by CapTech</p>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="rcsa-nav" role="navigation" aria-label="Main navigation">
+                <a href="/scrDashboard_1LoD" class="rcsa-nav-link active">
+                    <i class="bi bi-speedometer2"></i>
+                    Dashboard
+                </a>
+                <a href="/wizAssessment" class="rcsa-nav-link">
+                    <i class="bi bi-list-check"></i>
+                    Assessment
+                </a>
+                <a href="/scrMyIssues" class="rcsa-nav-link">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    Issues
+                </a>
+                <a href="/scrHelp" class="rcsa-nav-link">
+                    <i class="bi bi-question-circle"></i>
+                    Help
+                </a>
+            </nav>
+            
+            <!-- User Section -->
+            <div class="rcsa-user-info">
+                <div class="rcsa-notifications" onclick="showNotifications()">
+                    <i class="bi bi-bell" style="font-size: 1.25rem; cursor: pointer;"></i>
+                    <div class="notification-badge">3</div>
+                </div>
+                
+                <div class="rcsa-user">
+                    <div class="rcsa-user-avatar">SC</div>
+                    <div class="rcsa-user-details">
+                        <div class="rcsa-user-name">Sarah Chen</div>
+                        <div class="rcsa-user-role">VP Operations, Retail Banking</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <!-- Personalized Greeting -->
+        <div class="greeting-card">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="mb-2">Good morning, Sarah! 👋</h2>
+                    <p class="mb-1 text-muted">Here's what needs your attention today</p>
+                    <div class="ai-insight">
+                        <i class="bi bi-lightbulb text-warning me-2"></i>
+                        <strong>AI Insight:</strong> You have a busy week with 5 assessments due. Start with Wire Transfer - it's due today and historically has the most findings.
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="performance-stat">
+                        <span class="stat-icon">⚡</span>
+                        <div class="metric-value">8.2</div>
+                        <small class="text-muted">min avg completion</small>
+                        <div class="trend-indicator trend-down">-18% vs last month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="section-title">
+                    <i class="bi bi-lightning-charge text-warning"></i>
+                    Quick Actions
+                </h3>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="quick-action-btn danger" onclick="startRiskIntake()">
+                    <i class="bi bi-exclamation-triangle" style="font-size: 2rem; color: var(--captech-danger); margin-bottom: 0.5rem;"></i>
+                    <strong>Report New Risk</strong>
+                    <small class="text-muted">Identify emerging threats</small>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="quick-action-btn" onclick="startAssessment()">
+                    <i class="bi bi-plus-circle" style="font-size: 2rem; color: var(--captech-primary); margin-bottom: 0.5rem;"></i>
+                    <strong>Start Assessment</strong>
+                    <small class="text-muted">Begin new evaluation</small>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="quick-action-btn" onclick="completeOverdue()">
+                    <i class="bi bi-clock-history" style="font-size: 2rem; color: var(--captech-warning); margin-bottom: 0.5rem;"></i>
+                    <strong>Complete Overdue</strong>
+                    <small class="text-muted">Finish pending tasks</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI-Prioritized Tasks -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h3 class="section-title">
+                    <i class="bi bi-target text-primary"></i>
+                    AI-Prioritized Tasks
+                </h3>
+                
+                <div class="priority-task-card urgent" onclick="openAssessment('wire-transfer')">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="mb-1">Wire Transfer Assessment</h5>
+                        <span class="status-badge status-overdue">DUE TODAY</span>
+                    </div>
+                    <p class="mb-2 text-muted">Last month: 2 high risks found, 1 critical control gap identified</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            <i class="bi bi-building me-1"></i>Retail Banking
+                            <i class="bi bi-clock ms-3 me-1"></i>Est. 8 minutes
+                        </small>
+                        <i class="bi bi-arrow-right text-primary"></i>
+                    </div>
+                </div>
+
+                <div class="priority-task-card high" onclick="openAssessment('loan-origination')">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="mb-1">Loan Origination Assessment</h5>
+                        <span class="status-badge status-pending">Due in 2 days</span>
+                    </div>
+                    <p class="mb-2 text-muted">Quarterly review - focus on new underwriting controls</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            <i class="bi bi-building me-1"></i>Commercial Banking
+                            <i class="bi bi-clock ms-3 me-1"></i>Est. 12 minutes
+                        </small>
+                        <i class="bi bi-arrow-right text-primary"></i>
+                    </div>
+                </div>
+
+                <div class="priority-task-card medium" onclick="resolveIssue('1247')">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h5 class="mb-1">Resolve Issue #1247</h5>
+                        <span class="status-badge status-progress">ESCALATED</span>
+                    </div>
+                    <p class="mb-2 text-muted">ATM cash variance controls - Manager approval needed</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            <i class="bi bi-person me-1"></i>Assigned to M. Johnson
+                            <i class="bi bi-calendar ms-3 me-1"></i>Open 12 days
+                        </small>
+                        <i class="bi bi-arrow-right text-primary"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Landscape Metrics -->
+            <div class="col-md-4">
+                <h3 class="section-title">
+                    <i class="bi bi-graph-up text-success"></i>
+                    Risk Landscape
+                </h3>
+                
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <div class="metric-card">
+                            <div class="metric-value">3</div>
+                            <small class="text-muted">In Progress</small>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="metric-card">
+                            <div class="metric-value text-warning">5</div>
+                            <small class="text-muted">Due This Week</small>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="metric-card">
+                            <div class="metric-value text-danger">2</div>
+                            <small class="text-muted">High Risk Issues</small>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="metric-card">
+                            <div class="metric-value text-success">12</div>
+                            <small class="text-muted">Completed</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KRI Alert -->
+                <div class="ai-insight mt-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-graph-up text-warning me-2"></i>
+                        <strong>Trend Alert</strong>
+                    </div>
+                    <p class="mb-1"><strong>Wire Exception Rate:</strong> 0.8% ↗️</p>
+                    <small class="text-muted">Approaching threshold (1.0%). Consider reassessment.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Assessments -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="section-title">
+                    <i class="bi bi-list-check text-primary"></i>
+                    My Assessments
+                </h3>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="assessment-card" onclick="openAssessment('wire-transfer')">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="mb-0">Wire Transfer Process</h6>
+                                <span class="status-badge status-overdue">Overdue</span>
+                            </div>
+                            <p class="text-muted mb-2 small">Last assessment: 3 months ago</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">8 risks • 12 controls</small>
+                                <small class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i>Due today</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="assessment-card" onclick="openAssessment('loan-origination')">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="mb-0">Loan Origination</h6>
+                                <span class="status-badge status-pending">Pending</span>
+                            </div>
+                            <p class="text-muted mb-2 small">Quarterly review cycle</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">12 risks • 18 controls</small>
+                                <small class="text-warning"><i class="bi bi-clock me-1"></i>Due in 2 days</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="assessment-card" onclick="openAssessment('atm-reconciliation')">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h6 class="mb-0">ATM Reconciliation</h6>
+                                <span class="status-badge status-complete">Complete</span>
+                            </div>
+                            <p class="text-muted mb-2 small">Completed 2 weeks ago</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">6 risks • 8 controls</small>
+                                <small class="text-success"><i class="bi bi-check-circle me-1"></i>92% quality score</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Overview -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3 class="section-title">
+                    <i class="bi bi-trophy text-warning"></i>
+                    Performance Overview
+                </h3>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="metric-card">
+                    <span class="stat-icon">🎯</span>
+                    <div class="metric-value">92%</div>
+                    <small class="text-muted">Assessment Quality</small>
+                    <div class="trend-indicator trend-up mt-2">+8% vs last quarter</div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="metric-card">
+                    <span class="stat-icon">⚡</span>
+                    <div class="metric-value">8.2</div>
+                    <small class="text-muted">Avg Completion (min)</small>
+                    <div class="trend-indicator trend-down mt-2">-30% improvement</div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="metric-card">
+                    <span class="stat-icon">🤖</span>
+                    <div class="metric-value">15</div>
+                    <small class="text-muted">AI Risks Identified</small>
+                    <div class="trend-indicator trend-stable mt-2">This month</div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="metric-card">
+                    <span class="stat-icon">💰</span>
+                    <div class="metric-value">$2.4M</div>
+                    <small class="text-muted">Risk Exposure Reduced</small>
+                    <div class="trend-indicator trend-up mt-2">Through controls</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help & Support -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="bg-white rounded p-4 text-center border">
+                    <h4 class="mb-3">Need Help?</h4>
+                    <p class="text-muted mb-4">Quick access to resources and assistance</p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <button class="btn btn-primary" onclick="openHelp()">
+                            <i class="bi bi-book me-2"></i>Help Center
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="showToast('AI Assistant coming soon!', 'info')">
+                            <i class="bi bi-chat-dots me-2"></i>AI Assistant
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="showToast('Generating report...', 'info')">
+                            <i class="bi bi-file-earmark-pdf me-2"></i>Export Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Dashboard JavaScript -->
+    <script>
+        // Dashboard functionality
+        function startRiskIntake() {
+            showToast('Opening Risk Intake Form...', 'info');
+            setTimeout(() => {
+                window.location.href = '/frmRiskIntake';
+            }, 1000);
+        }
+
+        function startAssessment() {
+            showToast('Starting Assessment Wizard...', 'info');
+            setTimeout(() => {
+                window.location.href = '/wizAssessment';
+            }, 1000);
+        }
+
+        function completeOverdue() {
+            showToast('Opening Wire Transfer Assessment...', 'warning');
+            setTimeout(() => {
+                openAssessment('wire-transfer');
+            }, 1000);
+        }
+
+        function openAssessment(processType) {
+            showToast(`Opening ${processType.replace('-', ' ')} assessment...`, 'info');
+            setTimeout(() => {
+                window.location.href = '/wizAssessment?process=' + processType;
+            }, 1000);
+        }
+
+        function resolveIssue(issueId) {
+            showToast(`Opening Issue #${issueId}...`, 'info');
+            setTimeout(() => {
+                window.location.href = '/scrMyIssues?issue=' + issueId;
+            }, 1000);
+        }
+
+        function openHelp() {
+            showToast('Opening Help Center...', 'info');
+            setTimeout(() => {
+                window.location.href = '/scrHelp';
+            }, 1000);
+        }
+
+        function showNotifications() {
+            showToast('3 new notifications: 1 overdue assessment, 1 KRI threshold alert, 1 system update', 'info');
+        }
+
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toastId = 'toast-' + Date.now();
+            
+            const typeClasses = {
+                'info': 'text-bg-primary',
+                'success': 'text-bg-success',
+                'warning': 'text-bg-warning',
+                'error': 'text-bg-danger'
+            };
+            
+            const toastHTML = `
+                <div id="${toastId}" class="toast ${typeClasses[type] || typeClasses.info}" role="alert">
+                    <div class="toast-header">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <strong class="me-auto">RCSA Copilot</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${message}
+    </div>
+  </div>
+            `;
+            
+            toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+            const toast = new bootstrap.Toast(document.getElementById(toastId));
+            toast.show();
+            
+            // Remove toast element after it's hidden
+            document.getElementById(toastId).addEventListener('hidden.bs.toast', function() {
+                this.remove();
+            });
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate metrics on load
+            setTimeout(() => {
+                const metricValues = document.querySelectorAll('.metric-value');
+                metricValues.forEach(metric => {
+                    metric.style.animation = 'pulse 0.6s ease-in-out';
+                });
+            }, 500);
+
+            // Add hover effects to interactive elements
+            const interactiveCards = document.querySelectorAll('.priority-task-card, .assessment-card, .metric-card');
+            interactiveCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Show welcome toast
+            setTimeout(() => {
+                showToast('Welcome back, Sarah! You have 3 priority tasks waiting.', 'info');
+            }, 1000);
+        });
+
+        // Heat map interactivity
+        document.querySelectorAll('.heat-cell').forEach(cell => {
+            cell.addEventListener('click', function() {
+                const score = this.textContent;
+                showToast(`Risk Score: ${score} selected. Click assessments to view details.`, 'info');
+            });
+        });
+    </script>
+</body>
+</html>
+  

@@ -1,0 +1,13 @@
+adx_enablerating: false
+adx_enabletracking: false
+adx_excludefromsearch: false
+adx_hiddenfromsitemap: true
+adx_isroot: true
+adx_name: Profile
+adx_pagetemplateid: 50c92ad6-8070-4da7-bac5-8228a46282de
+adx_parentpageid: 88c12c7a-31f2-4b55-bea4-45f12fae67cb
+adx_partialurl: profile
+adx_publishingstateid: 5c88a359-5719-44bf-928c-a320e34b4a07
+adx_sharedpageconfiguration: false
+adx_title: Profile
+adx_webpageid: 65f2aa6f-7f1b-4d2f-96d8-f1eb36a78c97

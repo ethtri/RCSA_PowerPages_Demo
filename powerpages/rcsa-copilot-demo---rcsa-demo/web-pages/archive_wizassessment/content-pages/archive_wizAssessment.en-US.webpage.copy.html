@@ -1,0 +1,2189 @@
+<!-- Include Design System CSS --><link rel="stylesheet" href="/logicgate-design-system.css" /><!-- RCSA Assessment Wizard - Complete Implementation -->
+<div class="lg-page" style="width: 100%; min-height: 100vh;">
+  <!-- App Header - Consistent with Dashboard -->
+  <div class="lg-app-header" style="background-image: linear-gradient(135deg, rgb(0, 102, 204) 0%, rgb(0, 82, 163) 50%, rgb(0, 61, 122) 100%); background-position-x: initial; background-position-y: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; position: relative; overflow-x: hidden; overflow-y: hidden; padding-top: 20px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgba(255, 255, 255, 0.2); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px;">
+    <div class="lg-container" style="position: relative; z-index: 1;">
+      <div class="lg-app-header-content" style="display: flex; align-items: center; justify-content: space-between; row-gap: 2rem; column-gap: 2rem;">
+        <div class="lg-app-brand" style="display: flex; align-items: center; row-gap: 1rem; column-gap: 1rem;">
+          <div aria-label="RCSA Copilot Shield Icon" class="lg-app-icon" style="width: 2.5rem; height: 2.5rem; background-image: initial; background-position-x: initial; background-position-y: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgba(255, 255, 255, 0.15); border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; backdrop-filter: blur(8px); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgba(255, 255, 255, 0.2); border-right-color: rgba(255, 255, 255, 0.2); border-bottom-color: rgba(255, 255, 255, 0.2); border-left-color: rgba(255, 255, 255, 0.2); border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;">🛡️</div>
+          <div class="lg-app-text">
+            <h1 class="lg-app-title" style="font-size: 1.75rem; font-weight: 700; color: rgb(255, 255, 255); margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.2; display: flex; align-items: baseline; row-gap: 0.5rem; column-gap: 0.5rem;">
+              RCSA Assessment Wizard
+              <span class="lg-app-subtitle-inline" style="font-size: 0.7rem; font-weight: 500; color: rgba(255, 255, 255, 0.85); text-transform: uppercase; letter-spacing: 0.05em; background-image: initial; background-position-x: initial; background-position-y: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgba(255, 255, 255, 0.1); padding-top: 2px; padding-right: 6px; padding-bottom: 2px; padding-left: 6px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px;">by CapTech</span>
+            </h1>
+            <p class="lg-app-subtitle" style="font-size: 0.9rem; font-weight: 400; color: rgba(255, 255, 255, 0.9); margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: 1.4;">AI-Guided Risk &amp; Control Assessment Experience</p>
+          </div>
+        </div>
+        <nav role="navigation" aria-label="Main navigation" class="lg-app-nav" style="display: flex; align-items: center; row-gap: 0.25rem; column-gap: 0.25rem;"><a href="/" aria-label="Go to Home" class="lg-nav-link" style="padding-top: 0.5rem; padding-right: 0.75rem; padding-bottom: 0.5rem; padding-left: 0.75rem; color: rgba(255, 255, 255, 0.85); text-decoration-line: none; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-weight: 500; font-size: 0.8rem; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; transition-behavior: normal; transition-duration: 0.2s; transition-timing-function: ease; transition-delay: 0s; transition-property: all; position: relative; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; backdrop-filter: blur(4px);">Home</a><a href="/scrDashboard_1LoD" aria-label="Go to Dashboard" class="lg-nav-link" style="padding-top: 0.5rem; padding-right: 0.75rem; padding-bottom: 0.5rem; padding-left: 0.75rem; color: rgba(255, 255, 255, 0.85); text-decoration-line: none; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-weight: 500; font-size: 0.8rem; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; transition-behavior: normal; transition-duration: 0.2s; transition-timing-function: ease; transition-delay: 0s; transition-property: all; position: relative; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; backdrop-filter: blur(4px);">Dashboard</a><a href="/wizAssessment" aria-current="page" class="lg-nav-link lg-nav-link-active" style="padding-top: 0.5rem; padding-right: 0.75rem; padding-bottom: 0.5rem; padding-left: 0.75rem; text-decoration-line: none; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 0.8rem; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; transition-behavior: normal; transition-duration: 0.2s; transition-timing-function: ease; transition-delay: 0s; transition-property: all; position: relative; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; backdrop-filter: blur(4px); background-image: initial; background-position-x: initial; background-position-y: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: rgba(255, 255, 255, 0.25); color: rgb(255, 255, 255); font-weight: 600; border-top-color: rgba(255, 255, 255, 0.3); border-right-color: rgba(255, 255, 255, 0.3); border-bottom-color: rgba(255, 255, 255, 0.3); border-left-color: rgba(255, 255, 255, 0.3); box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px;">Assessment</a><a href="/scrMyIssues" aria-label="View My Issues" class="lg-nav-link" style="padding-top: 0.5rem; padding-right: 0.75rem; padding-bottom: 0.5rem; padding-left: 0.75rem; color: rgba(255, 255, 255, 0.85); text-decoration-line: none; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-weight: 500; font-size: 0.8rem; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; transition-behavior: normal; transition-duration: 0.2s; transition-timing-function: ease; transition-delay: 0s; transition-property: all; position: relative; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; backdrop-filter: blur(4px);">Issues</a><a href="/scrHelp" aria-label="Get Help" class="lg-nav-link" style="padding-top: 0.5rem; padding-right: 0.75rem; padding-bottom: 0.5rem; padding-left: 0.75rem; color: rgba(255, 255, 255, 0.85); text-decoration-line: none; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-weight: 500; font-size: 0.8rem; border-top-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px; transition-behavior: normal; transition-duration: 0.2s; transition-timing-function: ease; transition-delay: 0s; transition-property: all; position: relative; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: transparent; border-right-color: transparent; border-bottom-color: transparent; border-left-color: transparent; border-image-source: initial; border-image-slice: initial; border-image-width: initial; border-image-outset: initial; border-image-repeat: initial; backdrop-filter: blur(4px);">Help</a></nav>
+      </div>
+    </div>
+  </div>
+  <!-- Wizard Container -->
+  <div class="lg-container lg-mt-8">
+    <!-- Assessment Context Header -->
+    <div id="assessment-context" class="lg-card lg-mb-6"><!-- Dynamically populated by JavaScript --></div>
+    <!-- Progress Navigation -->
+    <div id="wizard-progress" class="lg-card lg-mb-8" style="position: sticky; top: 20px; z-index: 10; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px;"><!-- Dynamically populated by JavaScript --></div>
+    <!-- Main Wizard Content -->
+    <div id="wizard-content" class="lg-card" style="position: relative; overflow-x: hidden; overflow-y: hidden; background-image: initial; background-position-x: initial; background-position-y: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: white; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px;">
+      <!-- Pane 1: Risk Review -->
+      <div id="pane-risk-review" class="wizard-pane" style="min-height: 400px; animation-duration: 0.3s; animation-timing-function: ease; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: fadeIn; animation-timeline: auto; animation-range-start: normal; animation-range-end: normal; position: relative; display: none;"><!-- Risk identification and review interface --></div>
+      <!-- Pane 2: Inherent Risk Assessment -->
+      <div id="pane-inherent-risk" class="wizard-pane" style="min-height: 400px; animation-duration: 0.3s; animation-timing-function: ease; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: fadeIn; animation-timeline: auto; animation-range-start: normal; animation-range-end: normal; position: relative; display: none;"><!-- Inherent risk scoring interface --></div>
+      <!-- Pane 3: Control Mapping -->
+      <div id="pane-control-mapping" class="wizard-pane" style="min-height: 400px; animation-duration: 0.3s; animation-timing-function: ease; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: fadeIn; animation-timeline: auto; animation-range-start: normal; animation-range-end: normal; position: relative; display: none;"><!-- Control selection and mapping interface --></div>
+      <!-- Pane 4: Control Effectiveness -->
+      <div id="pane-control-effectiveness" class="wizard-pane" style="min-height: 400px; animation-duration: 0.3s; animation-timing-function: ease; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: fadeIn; animation-timeline: auto; animation-range-start: normal; animation-range-end: normal; position: relative; display: none;"><!-- Control effectiveness evaluation interface --></div>
+      <!-- Pane 5: Residual Risk Assessment -->
+      <div id="pane-residual-risk" class="wizard-pane" style="min-height: 400px; animation-duration: 0.3s; animation-timing-function: ease; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: fadeIn; animation-timeline: auto; animation-range-start: normal; animation-range-end: normal; position: relative; display: none;"><!-- Residual risk calculation and override interface --></div>
+      <!-- Pane 6: Risk Response -->
+      <div id="pane-risk-response" class="wizard-pane" style="min-height: 400px; animation-duration: 0.3s; animation-timing-function: ease; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: fadeIn; animation-timeline: auto; animation-range-start: normal; animation-range-end: normal; position: relative; display: none;"><!-- Risk response strategy selection interface --></div>
+      <!-- Pane 7: Review & Submit -->
+      <div id="pane-review-submit" class="wizard-pane" style="min-height: 400px; animation-duration: 0.3s; animation-timing-function: ease; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: fadeIn; animation-timeline: auto; animation-range-start: normal; animation-range-end: normal; position: relative; display: none;"><!-- Final review and submission interface --></div>
+    </div>
+    <!-- Wizard Navigation Controls -->
+    <div id="wizard-controls" class="lg-flex lg-justify-between lg-items-center lg-mt-6 lg-mb-8">
+      <button id="btn-previous" class="lg-btn lg-btn-outline lg-btn-lg" style="visibility: hidden;">← Previous</button>
+      <div class="lg-flex lg-gap-4"><button id="btn-save-draft" class="lg-btn lg-btn-ghost lg-btn-lg">💾 Save Draft</button><button id="btn-help" class="lg-btn lg-btn-ghost lg-btn-lg">❓ Help</button></div>
+      <button id="btn-next" class="lg-btn lg-btn-primary lg-btn-lg">Next →</button>
+    </div>
+  </div>
+</div>
+<!-- Assessment Wizard JavaScript -->
+<script>
+  // Assessment Wizard Data and State Management
+  const WizardData = {
+    // Current assessment context
+    assessment: {
+      id: 'WA-2025-001',
+      processName: 'Wire Transfer Process',
+      businessUnit: 'Retail Banking',
+      assessor: 'Sarah Chen',
+      startTime: new Date(),
+      dueDate: '2025-01-15',
+      status: 'in-progress'
+    },
+
+    // Wizard navigation state
+    navigation: {
+      currentStep: 1,
+      totalSteps: 7,
+      completedSteps: [],
+      steps: [
+        { id: 1, name: 'Risk Review', key: 'risk-review', completed: false },
+        { id: 2, name: 'Inherent Risk', key: 'inherent-risk', completed: false },
+        { id: 3, name: 'Control Mapping', key: 'control-mapping', completed: false },
+        { id: 4, name: 'Control Effectiveness', key: 'control-effectiveness', completed: false },
+        { id: 5, name: 'Residual Risk', key: 'residual-risk', completed: false },
+        { id: 6, name: 'Risk Response', key: 'risk-response', completed: false },
+        { id: 7, name: 'Review & Submit', key: 'review-submit', completed: false }
+      ]
+    },
+
+    // Assessment data
+    data: {
+      selectedRisks: [],
+      inherentScores: {},
+      mappedControls: {},
+      effectivenessScores: {},
+      residualScores: {},
+      responseStrategies: {},
+      aiSuggestions: [],
+      riskAssessments: {} // New: Store rationale and scores for each risk
+    },
+
+    // Enhanced mock data with risk scores and metadata
+    mockRisks: [
+      {
+        id: 'R001',
+        title: 'Unauthorized wire transfer',
+        category: 'Operational',
+        description: 'Risk of unauthorized or fraudulent wire transfers due to inadequate controls or human error',
+        preSelected: true,
+        aiSuggested: false,
+        likelihood: 4,
+        impact: 5,
+        riskScore: 20,
+        riskLevel: 'Very High',
+        lastUpdated: '2024-12-15',
+        dataSource: 'Risk Library'
+      },
+      {
+        id: 'R002',
+        title: 'Wire fraud - external attack',
+        category: 'Fraud',
+        description: 'External actors compromising wire transfer instructions through social engineering or system breaches',
+        preSelected: true,
+        aiSuggested: false,
+        likelihood: 3,
+        impact: 5,
+        riskScore: 15,
+        riskLevel: 'High',
+        lastUpdated: '2024-12-10',
+        dataSource: 'Risk Library'
+      },
+      {
+        id: 'R003',
+        title: 'Compliance violation - transfer limits',
+        category: 'Compliance',
+        description: 'Exceeding regulatory limits on wire transfers, leading to potential fines and regulatory action',
+        preSelected: true,
+        aiSuggested: false,
+        likelihood: 2,
+        impact: 4,
+        riskScore: 8,
+        riskLevel: 'Medium',
+        lastUpdated: '2024-12-08',
+        dataSource: 'Risk Library'
+      },
+      {
+        id: 'R004',
+        title: 'Deepfake voice authorization bypass',
+        category: 'Technology',
+        description: 'Use of AI-generated voice technology to bypass phone verification controls for wire transfers',
+        preSelected: false,
+        aiSuggested: true,
+        likelihood: 3,
+        impact: 5,
+        riskScore: 15,
+        riskLevel: 'High',
+        lastUpdated: '2024-12-20',
+        dataSource: 'AI Analysis',
+        aiContext: 'Based on recent industry incidents at peer banks'
+      },
+      {
+        id: 'R005',
+        title: 'Real-time payment system failure',
+        category: 'Technology',
+        description: 'Technical failure in real-time payment processing systems leading to transaction delays or errors',
+        preSelected: false,
+        aiSuggested: true,
+        likelihood: 2,
+        impact: 4,
+        riskScore: 8,
+        riskLevel: 'Medium',
+        lastUpdated: '2024-12-18',
+        dataSource: 'AI Analysis',
+        aiContext: 'New regulation effective last month increases exposure'
+      }
+    ]
+  };
+
+  // Main Wizard Controller
+  const AssessmentWizard = {
+
+    init: function() {
+      this.loadSessionData();
+      this.renderContext();
+      this.renderProgress();
+      this.showCurrentPane();
+      this.setupEventListeners();
+      this.startAutoSave();
+      this.trackTime();
+    },
+
+    // Load any saved session data
+    loadSessionData: function() {
+      const savedData = sessionStorage.getItem('rcsa-wizard-data');
+      if (savedData) {
+        try {
+          const parsed = JSON.parse(savedData);
+          Object.assign(WizardData.data, parsed.data || {});
+          WizardData.navigation.currentStep = parsed.currentStep || 1;
+          WizardData.navigation.completedSteps = parsed.completedSteps || [];
+        } catch (e) {
+          console.warn('Could not load session data:', e);
+        }
+      }
+    },
+
+    // Save current state to session
+    saveSessionData: function() {
+      const saveData = {
+        data: WizardData.data,
+        currentStep: WizardData.navigation.currentStep,
+        completedSteps: WizardData.navigation.completedSteps,
+        lastSaved: new Date().toISOString()
+      };
+      sessionStorage.setItem('rcsa-wizard-data', JSON.stringify(saveData));
+      this.showToast('Draft saved automatically', 'success');
+    },
+
+    // Render assessment context header
+    renderContext: function() {
+      const contextEl = document.getElementById('assessment-context');
+      if (!contextEl) return;
+
+      const assessment = WizardData.assessment;
+      const timeElapsed = Math.floor((new Date() - assessment.startTime) / 1000 / 60);
+
+      contextEl.innerHTML = `
+        <div class="lg-card-body">
+          <div class="lg-flex lg-items-center lg-justify-between">
+            <div>
+              <h2 class="lg-heading-3 lg-mb-2">
+                ${assessment.processName} Assessment
+              </h2>
+              <div class="lg-flex lg-items-center lg-gap-6 lg-text-sm lg-text-gray-600">
+                <span>📊 ${assessment.businessUnit}</span>
+                <span>👤 ${assessment.assessor}</span>
+                <span>📅 Due: ${assessment.dueDate}</span>
+                <span>⏱️ Time: ${timeElapsed} min</span>
+              </div>
+            </div>
+            <div class="lg-flex lg-items-center lg-gap-3">
+              <span class="lg-badge lg-badge-primary">${assessment.status.toUpperCase()}</span>
+              <span class="lg-text-sm lg-text-gray-500">ID: ${assessment.id}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    },
+
+    // Render progress navigation
+    renderProgress: function() {
+      const progressEl = document.getElementById('wizard-progress');
+      if (!progressEl) return;
+
+      const nav = WizardData.navigation;
+      const progressPercent = ((nav.currentStep - 1) / (nav.totalSteps - 1)) * 100;
+
+      let stepsHtml = '';
+      nav.steps.forEach((step, index) => {
+        const isActive = step.id === nav.currentStep;
+        const isCompleted = nav.completedSteps.includes(step.id);
+        const isAccessible = step.id <= nav.currentStep || isCompleted;
+
+        let stepClass = 'wizard-step';
+        if (isCompleted) stepClass += ' completed';
+        if (isActive) stepClass += ' active';
+        if (!isAccessible) stepClass += ' disabled';
+
+        stepsHtml += `
+          <div class="${stepClass}" data-step="${step.id}">
+            <div class="wizard-step-circle">
+              ${isCompleted ? '✓' : step.id}
+            </div>
+            <div class="wizard-step-label">${step.name}</div>
+          </div>
+        `;
+
+        // Add connector line (except for last step)
+        if (index < nav.steps.length - 1) {
+          stepsHtml += '<div class="wizard-step-connector"></div>';
+        }
+      });
+
+      progressEl.innerHTML = `
+        <div class="lg-card-body">
+          <div class="lg-mb-4">
+            <div class="lg-flex lg-items-center lg-justify-between lg-mb-2">
+              <h3 class="lg-heading-4 lg-mb-0">Step ${nav.currentStep} of ${nav.totalSteps}</h3>
+              <span class="lg-text-sm lg-text-gray-600">${Math.round(progressPercent)}% Complete</span>
+            </div>
+            <div class="wizard-progress-bar">
+              <div class="wizard-progress-fill" style="width: ${progressPercent}%"></div>
+            </div>
+          </div>
+          <div class="wizard-steps">
+            ${stepsHtml}
+          </div>
+        </div>
+      `;
+
+      // Add click handlers for completed/accessible steps
+      progressEl.querySelectorAll('.wizard-step:not(.disabled)').forEach(stepEl => {
+        stepEl.addEventListener('click', () => {
+          const stepId = parseInt(stepEl.getAttribute('data-step'));
+          if (stepId !== nav.currentStep) {
+            this.goToStep(stepId);
+          }
+        });
+      });
+    },
+
+    // Show current pane and populate with content
+    showCurrentPane: function() {
+      const nav = WizardData.navigation;
+      const currentStep = nav.steps.find(s => s.id === nav.currentStep);
+
+      // Hide all panes
+      document.querySelectorAll('.wizard-pane').forEach(pane => {
+        pane.style.display = 'none';
+      });
+
+      // Show current pane
+      const currentPane = document.getElementById(`pane-${currentStep.key}`);
+      if (currentPane) {
+        currentPane.style.display = 'block';
+
+        // Populate pane based on step
+        switch (currentStep.key) {
+          case 'risk-review':
+            this.renderRiskReviewPane(currentPane);
+            break;
+          case 'inherent-risk':
+            this.renderInherentRiskPane(currentPane);
+            break;
+          case 'control-mapping':
+            this.renderControlMappingPane(currentPane);
+            break;
+          case 'control-effectiveness':
+            this.renderControlEffectivenessPane(currentPane);
+            break;
+          case 'residual-risk':
+            this.renderResidualRiskPane(currentPane);
+            break;
+          case 'risk-response':
+            this.renderRiskResponsePane(currentPane);
+            break;
+          case 'review-submit':
+            this.renderReviewSubmitPane(currentPane);
+            break;
+        }
+      }
+
+      // Update navigation buttons
+      this.updateNavigationButtons();
+    },
+
+    // Render Risk Review pane content
+    renderRiskReviewPane: function(pane) {
+      const risks = WizardData.mockRisks;
+      const selectedRisks = WizardData.data.selectedRisks || [];
+
+      const preSelectedRisks = risks.filter(r => r.preSelected);
+      const aiSuggestedRisks = risks.filter(r => r.aiSuggested);
+
+      // Helper function to get risk level color
+      const getRiskLevelColor = (level) => {
+        switch(level) {
+          case 'Very High': return 'danger';
+          case 'High': return 'warning';
+          case 'Medium': return 'info';
+          case 'Low': return 'success';
+          default: return 'gray';
+        }
+      };
+
+      pane.innerHTML = `
+        <div class="lg-card-body lg-p-8">
+          <!-- Cleaner Header Section -->
+          <div class="wizard-header lg-mb-8">
+            <h2 class="lg-heading-1 lg-mb-4">Review Risks</h2>
+            <p class="lg-text-lg lg-text-gray-600 lg-leading-relaxed">
+              Select risks that apply to your <strong>Wire Transfer Process</strong>. We've pre-identified common risks and suggest emerging threats based on industry analysis.
+            </p>
+          </div>
+
+          <!-- Action Toolbar - Consolidated -->
+          <div class="action-toolbar lg-mb-8">
+            <div class="lg-flex lg-items-center lg-justify-between lg-flex-wrap lg-gap-4">
+              <div class="lg-flex lg-items-center lg-gap-3">
+                <button class="lg-btn lg-btn-outline lg-btn-sm" onclick="RiskEnhancer.selectAllPreSelected()">
+                  ✓ Select All Common
+                </button>
+                <button class="lg-btn lg-btn-ghost lg-btn-sm" onclick="RiskEnhancer.clearSelection()">
+                  Clear All
+                </button>
+              </div>
+              <div class="selection-summary">
+                <span class="lg-text-sm lg-text-gray-600">
+                  <strong id="selected-risk-count">${selectedRisks.length}</strong> risks selected
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pre-identified Risks Section -->
+          <div class="risk-section lg-mb-16">
+            <div class="section-header lg-mb-6">
+              <h3 class="lg-heading-3 lg-mb-2">
+                📋 Common Risks <span class="risk-count-badge">${preSelectedRisks.length}</span>
+              </h3>
+              <p class="lg-text-sm lg-text-gray-500">
+                These risks are frequently identified for wire transfer processes
+              </p>
+            </div>
+
+            <div class="risk-grid-optimized">
+              ${preSelectedRisks.map(risk => `
+                <div class="risk-card-improved ${selectedRisks.includes(risk.id) ? 'selected' : ''}"
+                     data-risk-id="${risk.id}">
+
+                  <!-- Main Card Content -->
+                  <div class="risk-card-header">
+                    <div class="risk-selection-area">
+                      <input type="checkbox"
+                             id="risk-${risk.id}"
+                             ${selectedRisks.includes(risk.id) ? 'checked' : ''}
+                             onchange="AssessmentWizard.toggleRisk('${risk.id}')"
+                             class="risk-checkbox">
+                      <label for="risk-${risk.id}" class="risk-checkbox-label">Select this risk</label>
+                    </div>
+
+                    <div class="risk-main-content" onclick="AssessmentWizard.toggleRiskCard('${risk.id}')">
+                      <div class="risk-title-row">
+                        <h4 class="risk-title-improved">${risk.title}</h4>
+                        <div class="risk-badges">
+                          <span class="risk-category-badge lg-badge lg-badge-gray">${risk.category}</span>
+                        </div>
+                      </div>
+
+                      <div class="risk-score-display">
+                        <div class="risk-score-item">
+                          <span class="score-label">Risk Score:</span>
+                          <span class="risk-score lg-badge lg-badge-${getRiskLevelColor(risk.riskLevel)}">${risk.riskScore}</span>
+                          <span class="risk-level">${risk.riskLevel}</span>
+                        </div>
+                        <div class="likelihood-impact">
+                          <span class="li-item">L: ${risk.likelihood}</span>
+                          <span class="li-separator">×</span>
+                          <span class="li-item">I: ${risk.impact}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Expandable Details -->
+                  <div class="risk-details-section ${risk.id}-details" style="display: none;">
+                    <div class="risk-details-content">
+                      <div class="detail-row">
+                        <span class="detail-label">Description:</span>
+                        <p class="detail-value">${risk.description}</p>
+                      </div>
+                      <div class="detail-grid">
+                        <div class="detail-item">
+                          <span class="detail-label">Likelihood:</span>
+                          <span class="detail-value">${risk.likelihood}/5</span>
+                        </div>
+                        <div class="detail-item">
+                          <span class="detail-label">Impact:</span>
+                          <span class="detail-value">${risk.impact}/5</span>
+                        </div>
+                        <div class="detail-item">
+                          <span class="detail-label">Last Updated:</span>
+                          <span class="detail-value">${risk.lastUpdated}</span>
+                        </div>
+                        <div class="detail-item">
+                          <span class="detail-label">Source:</span>
+                          <span class="detail-value">${risk.dataSource}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Expand/Collapse Control -->
+                  <div class="expand-control" onclick="AssessmentWizard.toggleRiskDetails('${risk.id}')">
+                    <span class="expand-text ${risk.id}-expand-text">Show Details</span>
+                    <span class="expand-arrow ${risk.id}-expand-arrow">⌄</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- AI Suggestions Section - Better Spaced -->
+          <div class="ai-section lg-mb-12">
+            <div class="ai-section-header lg-mb-6">
+              <div class="lg-flex lg-items-center lg-gap-3 lg-mb-2">
+                <span class="ai-sparkle-icon">✨</span>
+                <h3 class="lg-heading-3 lg-mb-0">AI Suggestions</h3>
+                <span class="risk-count-badge">${aiSuggestedRisks.length} new</span>
+              </div>
+              <p class="lg-text-sm lg-text-gray-600">
+                Emerging risks identified from recent industry events and regulatory changes
+              </p>
+            </div>
+
+            <div class="ai-suggestions-optimized">
+              <div class="ai-insight-banner lg-mb-6">
+                <div class="lg-flex lg-items-center lg-gap-3 lg-p-4">
+                  <span class="ai-robot-icon">🤖</span>
+                  <div>
+                    <span class="lg-font-semibold lg-text-gray-800">Industry Analysis:</span>
+                    <span class="lg-text-gray-600">Based on recent security incidents and regulatory updates</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="risk-grid-optimized">
+                ${aiSuggestedRisks.map(risk => `
+                  <div class="risk-card-improved ai-suggested ${selectedRisks.includes(risk.id) ? 'selected' : ''}"
+                       data-risk-id="${risk.id}">
+
+                    <!-- Main Card Content -->
+                    <div class="risk-card-header">
+                      <div class="risk-selection-area">
+                        <input type="checkbox"
+                               id="risk-${risk.id}"
+                               ${selectedRisks.includes(risk.id) ? 'checked' : ''}
+                               onchange="AssessmentWizard.toggleRisk('${risk.id}')"
+                               class="risk-checkbox">
+                        <label for="risk-${risk.id}" class="risk-checkbox-label">Select this risk</label>
+                      </div>
+
+                      <div class="risk-main-content" onclick="AssessmentWizard.toggleRiskCard('${risk.id}')">
+                        <div class="risk-title-row">
+                          <h4 class="risk-title-improved">${risk.title}</h4>
+                          <div class="risk-badges">
+                            <span class="risk-category-badge lg-badge lg-badge-warning">NEW</span>
+                          </div>
+                        </div>
+
+                        <div class="ai-context-preview lg-mt-2 lg-mb-3">
+                          <span class="lg-text-xs lg-text-primary-600">💡 ${risk.aiContext}</span>
+                        </div>
+
+                        <div class="risk-score-display">
+                          <div class="risk-score-item">
+                            <span class="score-label">Estimated Score:</span>
+                            <span class="risk-score lg-badge lg-badge-${getRiskLevelColor(risk.riskLevel)}">${risk.riskScore}</span>
+                            <span class="risk-level">${risk.riskLevel}</span>
+                          </div>
+                          <div class="likelihood-impact">
+                            <span class="li-item">L: ${risk.likelihood}</span>
+                            <span class="li-separator">×</span>
+                            <span class="li-item">I: ${risk.impact}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Expandable Details -->
+                    <div class="risk-details-section ${risk.id}-details" style="display: none;">
+                      <div class="risk-details-content">
+                        <div class="detail-row">
+                          <span class="detail-label">Description:</span>
+                          <p class="detail-value">${risk.description}</p>
+                        </div>
+                        <div class="detail-grid">
+                          <div class="detail-item">
+                            <span class="detail-label">Likelihood:</span>
+                            <span class="detail-value">${risk.likelihood}/5 (Estimated)</span>
+                          </div>
+                          <div class="detail-item">
+                            <span class="detail-label">Impact:</span>
+                            <span class="detail-value">${risk.impact}/5 (Estimated)</span>
+                          </div>
+                          <div class="detail-item">
+                            <span class="detail-label">Identified:</span>
+                            <span class="detail-value">${risk.lastUpdated}</span>
+                          </div>
+                          <div class="detail-item">
+                            <span class="detail-label">Source:</span>
+                            <span class="detail-value">${risk.dataSource}</span>
+                          </div>
+                        </div>
+                        <div class="ai-analysis">
+                          <span class="detail-label">AI Analysis:</span>
+                          <p class="detail-value">${risk.aiContext}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Expand/Collapse Control -->
+                    <div class="expand-control" onclick="AssessmentWizard.toggleRiskDetails('${risk.id}')">
+                      <span class="expand-text ${risk.id}-expand-text">Show Details</span>
+                      <span class="expand-arrow ${risk.id}-expand-arrow">⌄</span>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Custom Risk - Simplified -->
+          <div class="custom-risk-section lg-mb-8">
+            <button class="lg-btn lg-btn-ghost lg-btn-lg custom-risk-btn" onclick="AssessmentWizard.showAddCustomRisk()">
+              <span class="lg-text-lg">+</span>
+              <span>Add Custom Risk</span>
+            </button>
+          </div>
+
+          <!-- Progress Summary - Cleaner -->
+          <div class="progress-summary">
+            <div class="lg-flex lg-items-center lg-justify-between lg-p-6 lg-bg-gray-50 lg-rounded-lg">
+              <div class="lg-flex lg-items-center lg-gap-4">
+                <div class="progress-icon">
+                  <span class="lg-text-2xl">📊</span>
+                </div>
+                <div>
+                  <div class="lg-font-semibold lg-text-gray-900">
+                    Ready for next step
+                  </div>
+                  <div class="lg-text-sm lg-text-gray-600">
+                    <strong id="selected-risk-count-summary">${selectedRisks.length}</strong> risks selected for assessment
+                  </div>
+                </div>
+              </div>
+              <div class="next-step-preview">
+                <span class="lg-text-sm lg-text-gray-500">Next: Inherent Risk Scoring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Initialize with pre-selected risks if not already set
+      if (selectedRisks.length === 0) {
+        preSelectedRisks.forEach(risk => {
+          if (risk.preSelected) {
+            this.toggleRisk(risk.id, true);
+          }
+        });
+      }
+    },
+
+    // Render Inherent Risk Assessment pane content
+    renderInherentRiskPane: function(pane) {
+      const selectedRisks = WizardData.data.selectedRisks || [];
+      const risks = WizardData.mockRisks.filter(r => selectedRisks.includes(r.id));
+
+      if (risks.length === 0) {
+        pane.innerHTML = `
+          <div class="lg-card-body lg-p-8 lg-text-center">
+            <div class="empty-state lg-py-12">
+              <span class="lg-text-6xl lg-mb-4 lg-block">📊</span>
+              <h3 class="lg-heading-2 lg-mb-4">No Risks Selected</h3>
+              <p class="lg-text-lg lg-text-gray-600 lg-mb-6">
+                Please go back to Step 1 and select risks to assess.
+              </p>
+              <button class="lg-btn lg-btn-primary" onclick="AssessmentWizard.goToStep(1)">
+                ← Back to Risk Selection
+              </button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      pane.innerHTML = `
+        <div class="lg-card-body lg-p-8">
+          <!-- Header Section -->
+          <div class="wizard-header lg-mb-8">
+            <h2 class="lg-heading-1 lg-mb-4">Inherent Risk Assessment</h2>
+            <p class="lg-text-lg lg-text-gray-600 lg-leading-relaxed">
+              Assess the <strong>inherent risk</strong> (before controls) for each selected risk.
+              Existing risks show current scores; new risks need your assessment.
+            </p>
+          </div>
+
+          <!-- Assessment Progress -->
+          <div class="assessment-progress lg-mb-8">
+            <div class="lg-flex lg-items-center lg-justify-between lg-p-4 lg-bg-blue-50 lg-rounded-lg lg-border lg-border-blue-200">
+              <div class="lg-flex lg-items-center lg-gap-3">
+                <span class="lg-text-2xl">📊</span>
+                <div>
+                  <div class="lg-font-semibold lg-text-blue-900">Assessment Progress</div>
+                  <div class="lg-text-sm lg-text-blue-700">
+                    <span id="assessed-count">0</span> of ${risks.length} risks assessed
+                  </div>
+                </div>
+              </div>
+              <div class="overall-risk-indicator">
+                <span class="lg-text-sm lg-text-blue-600">Overall Process Risk:</span>
+                <span id="overall-risk-level" class="lg-badge lg-badge-gray lg-ml-2">Calculating...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Risk Assessment Grid -->
+          <div class="risk-assessment-grid">
+            ${risks.map((risk, index) => this.renderRiskAssessmentCard(risk, index)).join('')}
+          </div>
+
+          <!-- Modern Assessment Summary -->
+          <div class="assessment-summary-modern">
+            <div class="summary-header">
+              <div class="summary-title-section">
+                <span class="summary-icon">📈</span>
+                <h3 class="summary-title">Inherent Risk Summary</h3>
+              </div>
+            </div>
+
+            <div class="risk-metrics-grid">
+              <div class="risk-metric-card very-high">
+                <div class="metric-header">
+                  <span class="metric-label">Very High Risk</span>
+                  <span class="metric-level-indicator very-high-indicator"></span>
+                </div>
+                <div class="metric-value-section">
+                  <span id="very-high-count" class="metric-count">0</span>
+                  <span class="metric-badge lg-badge lg-badge-danger">Very High</span>
+                </div>
+              </div>
+
+              <div class="risk-metric-card high">
+                <div class="metric-header">
+                  <span class="metric-label">High Risk</span>
+                  <span class="metric-level-indicator high-indicator"></span>
+                </div>
+                <div class="metric-value-section">
+                  <span id="high-count" class="metric-count">0</span>
+                  <span class="metric-badge lg-badge lg-badge-warning">High</span>
+                </div>
+              </div>
+
+              <div class="risk-metric-card medium">
+                <div class="metric-header">
+                  <span class="metric-label">Medium Risk</span>
+                  <span class="metric-level-indicator medium-indicator"></span>
+                </div>
+                <div class="metric-value-section">
+                  <span id="medium-count" class="metric-count">0</span>
+                  <span class="metric-badge lg-badge lg-badge-primary">Medium</span>
+                </div>
+              </div>
+
+              <div class="risk-metric-card low">
+                <div class="metric-header">
+                  <span class="metric-label">Low Risk</span>
+                  <span class="metric-level-indicator low-indicator"></span>
+                </div>
+                <div class="metric-value-section">
+                  <span id="low-count" class="metric-count">0</span>
+                  <span class="metric-badge lg-badge lg-badge-success">Low</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="next-step-panel">
+              <div class="next-step-content">
+                <div class="next-step-header">
+                  <span class="next-step-icon">🎯</span>
+                  <span class="next-step-title">Next Step</span>
+                </div>
+                <p class="next-step-description">
+                  Control Mapping - Identify existing controls to mitigate these inherent risks
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Initialize assessments for existing risks
+      risks.forEach(risk => {
+        if (risk.likelihood && risk.impact && !WizardData.data.riskAssessments[risk.id]) {
+          WizardData.data.riskAssessments[risk.id] = {
+            likelihood: risk.likelihood,
+            impact: risk.impact,
+            score: risk.likelihood * risk.impact,
+            rationale: ''
+          };
+        }
+      });
+
+      // Update summary and initialize counters
+      setTimeout(() => {
+        this.updateAssessmentSummary();
+        this.initializeRationaleCounters();
+      }, 100);
+    },
+
+    // Render individual risk assessment card
+    renderRiskAssessmentCard: function(risk, index) {
+      const isExisting = risk.likelihood && risk.impact; // Has existing scores
+      const isAISuggested = risk.aiSuggested;
+      const currentLikelihood = risk.likelihood || 3;
+      const currentImpact = risk.impact || 3;
+      const currentScore = currentLikelihood * currentImpact;
+      const riskLevel = this.calculateRiskLevel(currentScore);
+      const isAssessed = WizardData.data.riskAssessments?.[risk.id]?.score > 0;
+
+      return `
+        <div class="risk-assessment-card ${isExisting ? 'existing-risk' : 'new-risk'} ${isAssessed ? 'assessed' : ''}"
+             data-risk-id="${risk.id}">
+
+          <!-- Collapsible Card Header -->
+          <div class="card-header-collapsible" onclick="AssessmentWizard.toggleRiskCard('${risk.id}')">
+            <div class="card-header-content">
+              <div class="risk-info">
+                <h4 class="risk-title">${risk.title}</h4>
+                <div class="risk-meta">
+                  <span class="risk-category lg-badge lg-badge-gray">${risk.category}</span>
+                  ${isAISuggested ? '<span class="ai-badge lg-badge lg-badge-warning"><span class="ai-icon">✨</span> AI Suggested</span>' : ''}
+                  ${isExisting ? '<span class="existing-badge lg-badge lg-badge-info">Existing Assessment</span>' : '<span class="new-badge lg-badge lg-badge-primary">Needs Assessment</span>'}
+                </div>
+              </div>
+
+              <div class="card-header-right">
+                <!-- Swapped: Assessment Status first, then Risk Score -->
+                <div class="assessment-status-display">
+                  <div id="header-status-${risk.id}" class="status-indicator-compact ${isExisting ? 'assessed' : 'pending'}">
+                    <span class="status-icon">${isExisting ? '✅' : '⏳'}</span>
+                    <span class="status-text">${isExisting ? 'Complete' : 'Pending'}</span>
+                  </div>
+                </div>
+
+                <div class="current-score-display">
+                  <div class="score-badge lg-badge lg-badge-${this.getRiskLevelColor(currentScore)} lg-text-lg">
+                    ${currentScore}
+                  </div>
+                  <div class="score-label">${riskLevel}</div>
+                </div>
+
+                <div class="collapse-indicator">
+                  <span class="collapse-icon ${risk.id}-collapse-icon">−</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Collapsible Card Body -->
+          <div class="card-body-collapsible ${risk.id}-body" style="display: block;">
+
+            <!-- Risk Description Section -->
+            <div class="risk-description-section lg-mb-4">
+              <div class="description-header">
+                <h5 class="lg-text-sm lg-font-semibold lg-text-gray-700 lg-mb-2">Risk Description</h5>
+              </div>
+              <p class="risk-description lg-text-sm lg-text-gray-600 lg-leading-relaxed">
+                ${risk.description || 'No description available for this risk.'}
+              </p>
+            </div>
+
+            <!-- Main Assessment Row - Side by Side Layout -->
+            <div class="assessment-row-horizontal">
+              <!-- Left: Heat Map -->
+              <div class="heat-map-column">
+                <div class="heat-map-section">
+                  <div class="heat-map-header lg-mb-3">
+                    <h5 class="lg-heading-4 lg-mb-1">Risk Matrix</h5>
+                    <p class="lg-text-xs lg-text-gray-500">
+                      ${isExisting ? 'Update if needed' : 'Select likelihood and impact'}
+                    </p>
+                  </div>
+
+                  <!-- Modern Professional Heat Map Layout -->
+                  <div class="heat-map-professional">
+                    <!-- Impact title (vertical, left side) -->
+                    <div class="impact-title-vertical">IMPACT</div>
+
+                    <!-- Impact labels column -->
+                    <div class="impact-labels-column">
+                      <div class="impact-label severe">Severe</div>
+                      <div class="impact-label major">Major</div>
+                      <div class="impact-label moderate">Moderate</div>
+                      <div class="impact-label minor">Minor</div>
+                      <div class="impact-label insignificant">Insignificant</div>
+                    </div>
+
+                    <!-- Heat map grid -->
+                    <div class="heat-map-grid-professional" data-risk-id="${risk.id}">
+                      ${this.generateProfessionalHeatMapCells(risk.id, currentLikelihood, currentImpact)}
+                    </div>
+
+                    <!-- Bottom section with likelihood -->
+                    <div class="bottom-section">
+                      <!-- Empty space under impact title -->
+                      <div class="bottom-spacer"></div>
+
+                      <!-- Likelihood labels row -->
+                      <div class="likelihood-labels-row">
+                        <div class="likelihood-label rare">Rare</div>
+                        <div class="likelihood-label unlikely">Unlikely</div>
+                        <div class="likelihood-label possible">Possible</div>
+                        <div class="likelihood-label likely">Likely</div>
+                        <div class="likelihood-label certain">Almost Certain</div>
+                      </div>
+
+                      <!-- Likelihood title (centered) -->
+                      <div class="likelihood-title-centered">LIKELIHOOD</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: AI & Rationale -->
+              <div class="controls-column">
+                ${(!isExisting || isAISuggested) ? `
+                  <!-- AI Scoring Assistant -->
+                  <div class="ai-section-compact lg-mb-4">
+                    <div class="ai-header-compact">
+                      <span class="ai-icon">✨</span>
+                      <span class="ai-title">AI Suggestion</span>
+                    </div>
+                    <div class="ai-recommendation-compact">
+                      <p class="lg-text-sm lg-text-gray-700 lg-mb-2">
+                        <strong>L:${currentLikelihood} × I:${currentImpact} = ${currentScore}</strong>
+                      </p>
+                      <p class="lg-text-xs lg-text-gray-600 lg-mb-3">
+                        ${risk.aiContext || 'Based on similar risks in your industry'}
+                      </p>
+                      <div class="ai-actions-compact">
+                        <button class="lg-btn lg-btn-xs lg-btn-primary" onclick="AssessmentWizard.acceptAISuggestion('${risk.id}')">
+                          Accept
+                        </button>
+                        <button class="lg-btn lg-btn-xs lg-btn-ghost" onclick="AssessmentWizard.modifyScore('${risk.id}')">
+                          Modify
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ` : ''}
+
+                <!-- Rationale Section - Moved to Right -->
+                <div class="rationale-section-right">
+                  <div class="rationale-header-modern">
+                    <div class="rationale-title-section">
+                      <label class="lg-text-sm lg-font-semibold lg-text-gray-900" for="rationale-${risk.id}">
+                        Assessment Rationale
+                        <span class="required-indicator ${this.isRationaleRequired(risk, currentScore) ? 'visible' : 'hidden'}">*</span>
+                      </label>
+                      <div class="rationale-guidance lg-text-xs lg-text-gray-500 lg-mt-1">
+                        ${this.isRationaleRequired(risk, currentScore) ? 'Required for High/Very High risks' : 'Optional but recommended'}
+                      </div>
+                    </div>
+
+                    <div class="ai-assistance-section">
+                      ${isAISuggested || !isExisting ? `
+                        <button class="ai-draft-btn-modern lg-btn lg-btn-xs" onclick="AssessmentWizard.generateRationale('${risk.id}')">
+                          <span class="ai-icon">✨</span>
+                          <span>AI Draft</span>
+                        </button>
+                      ` : ''}
+                    </div>
+                  </div>
+
+                  <div class="rationale-input-container">
+                    <textarea
+                      id="rationale-${risk.id}"
+                      class="rationale-textarea-modern lg-input"
+                      placeholder="Explain the reasoning behind this risk assessment. Include factors that influenced the likelihood and impact scores..."
+                      rows="4"
+                      data-risk-id="${risk.id}"
+                      oninput="AssessmentWizard.updateRationaleWithValidation('${risk.id}', this.value)"
+                      onchange="AssessmentWizard.updateRationale('${risk.id}', this.value)"
+                    >${WizardData.data.riskAssessments?.[risk.id]?.rationale || ''}</textarea>
+
+                    <div class="rationale-footer">
+                      <div class="character-count-section">
+                        <span id="char-count-${risk.id}" class="character-count">0</span>
+                        <span class="character-limit">${this.isRationaleRequired(risk, currentScore) ? '/ 50 minimum' : '/ 200 recommended'}</span>
+                      </div>
+
+                      <div class="validation-status">
+                        <span id="validation-${risk.id}" class="validation-indicator hidden">
+                          <span class="validation-icon">✓</span>
+                          <span class="validation-text">Good quality</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  ${isAISuggested || !isExisting ? `
+                    <div class="ai-suggestions-panel lg-mt-3" id="ai-suggestions-${risk.id}" style="display: none;">
+                      <div class="ai-suggestion-header">
+                        <span class="ai-icon">💡</span>
+                        <span class="lg-text-xs lg-font-medium lg-text-gray-700">AI Writing Assistance</span>
+                      </div>
+                      <div class="ai-suggestion-content lg-text-xs lg-text-gray-600 lg-mt-2">
+                        Consider including: risk factors, control gaps, industry benchmarks, regulatory implications
+                      </div>
+                    </div>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    },
+
+    // Render other panes (placeholder for now)
+    renderControlMappingPane: function(pane) {
+      pane.innerHTML = `
+        <div class="lg-card-body">
+          <h2 class="lg-heading-2 lg-mb-4">Control Mapping</h2>
+          <div class="lg-text-center lg-p-8">
+            <div class="lg-text-4xl lg-mb-4">🔗</div>
+            <h3 class="lg-heading-4 lg-mb-2">Coming Next!</h3>
+            <p class="lg-text-gray-600">AI-powered control matching and selection</p>
+          </div>
+        </div>
+      `;
+    },
+
+    renderControlEffectivenessPane: function(pane) {
+      pane.innerHTML = `
+        <div class="lg-card-body">
+          <h2 class="lg-heading-2 lg-mb-4">Control Effectiveness</h2>
+          <div class="lg-text-center lg-p-8">
+            <div class="lg-text-4xl lg-mb-4">📊</div>
+            <h3 class="lg-heading-4 lg-mb-2">Coming Next!</h3>
+            <p class="lg-text-gray-600">CEI calculation and effectiveness scoring</p>
+          </div>
+        </div>
+      `;
+    },
+
+    renderResidualRiskPane: function(pane) {
+      pane.innerHTML = `
+        <div class="lg-card-body">
+          <h2 class="lg-heading-2 lg-mb-4">Residual Risk Assessment</h2>
+          <div class="lg-text-center lg-p-8">
+            <div class="lg-text-4xl lg-mb-4">⚖️</div>
+            <h3 class="lg-heading-4 lg-mb-2">Coming Next!</h3>
+            <p class="lg-text-gray-600">AI-calculated residual risk with override options</p>
+          </div>
+        </div>
+      `;
+    },
+
+    renderRiskResponsePane: function(pane) {
+      pane.innerHTML = `
+        <div class="lg-card-body">
+          <h2 class="lg-heading-2 lg-mb-4">Risk Response Planning</h2>
+          <div class="lg-text-center lg-p-8">
+            <div class="lg-text-4xl lg-mb-4">🎯</div>
+            <h3 class="lg-heading-4 lg-mb-2">Coming Next!</h3>
+            <p class="lg-text-gray-600">Response strategy selection with AI recommendations</p>
+          </div>
+        </div>
+      `;
+    },
+
+    renderReviewSubmitPane: function(pane) {
+      pane.innerHTML = `
+        <div class="lg-card-body">
+          <h2 class="lg-heading-2 lg-mb-4">Review & Submit Assessment</h2>
+          <div class="lg-text-center lg-p-8">
+            <div class="lg-text-4xl lg-mb-4">✅</div>
+            <h3 class="lg-heading-4 lg-mb-2">Coming Next!</h3>
+            <p class="lg-text-gray-600">Final review and submission with time saved celebration</p>
+          </div>
+        </div>
+      `;
+    },
+
+    // Risk selection methods
+    toggleRisk: function(riskId, forceAdd = false) {
+      let selectedRisks = WizardData.data.selectedRisks || [];
+
+      if (forceAdd || !selectedRisks.includes(riskId)) {
+        selectedRisks.push(riskId);
+      } else {
+        selectedRisks = selectedRisks.filter(id => id !== riskId);
+      }
+
+      WizardData.data.selectedRisks = selectedRisks;
+
+      // Update UI
+      this.updateRiskSelection();
+      this.saveSessionData();
+    },
+
+    // New method for card-based toggling
+    toggleRiskCard: function(riskId) {
+      this.toggleRisk(riskId);
+    },
+
+    // New method for progressive disclosure
+    toggleRiskDetails: function(riskId) {
+      const detailsEl = document.querySelector(`.${riskId}-details`);
+      const expandText = detailsEl.querySelector(`.${riskId}-expand-text`);
+      const expandArrow = detailsEl.querySelector(`.${riskId}-expand-arrow`);
+
+      if (detailsEl.style.display === 'none') {
+        detailsEl.style.display = 'block';
+        expandText.textContent = 'Hide Details';
+        expandArrow.textContent = '⌃';
+        detailsEl.setAttribute('aria-expanded', 'true');
+      } else {
+        detailsEl.style.display = 'none';
+        expandText.textContent = 'Show Details';
+        expandArrow.textContent = '⌄';
+        detailsEl.setAttribute('aria-expanded', 'false');
+      }
+    },
+
+    addRisk: function(riskId) {
+      this.toggleRisk(riskId, true);
+      this.showToast(`Risk "${WizardData.mockRisks.find(r => r.id === riskId).title}" added to assessment`, 'success');
+    },
+
+    updateRiskSelection: function() {
+      const selectedCount = document.getElementById('selected-risk-count');
+      const selectedCountSummary = document.getElementById('selected-risk-count-summary');
+
+      if (selectedCount) {
+        selectedCount.textContent = WizardData.data.selectedRisks.length;
+      }
+      if (selectedCountSummary) {
+        selectedCountSummary.textContent = WizardData.data.selectedRisks.length;
+      }
+
+      // Update risk card states
+      document.querySelectorAll('.risk-card-improved').forEach(card => {
+        const riskId = card.getAttribute('data-risk-id');
+        const isSelected = WizardData.data.selectedRisks.includes(riskId);
+        const checkbox = card.querySelector('input[type="checkbox"]');
+
+        if (checkbox) checkbox.checked = isSelected;
+        card.classList.toggle('selected', isSelected);
+      });
+    },
+
+    // Navigation methods
+    goToStep: function(stepId) {
+      WizardData.navigation.currentStep = stepId;
+      this.renderProgress();
+      this.showCurrentPane();
+      this.saveSessionData();
+    },
+
+    nextStep: function() {
+      const nav = WizardData.navigation;
+      if (nav.currentStep < nav.totalSteps) {
+        // Mark current step as completed
+        if (!nav.completedSteps.includes(nav.currentStep)) {
+          nav.completedSteps.push(nav.currentStep);
+        }
+
+        nav.currentStep++;
+        this.renderProgress();
+        this.showCurrentPane();
+        this.saveSessionData();
+      }
+    },
+
+    previousStep: function() {
+      const nav = WizardData.navigation;
+      if (nav.currentStep > 1) {
+        nav.currentStep--;
+        this.renderProgress();
+        this.showCurrentPane();
+        this.saveSessionData();
+      }
+    },
+
+    updateNavigationButtons: function() {
+      const btnPrevious = document.getElementById('btn-previous');
+      const btnNext = document.getElementById('btn-next');
+      const nav = WizardData.navigation;
+
+      // Previous button
+      if (nav.currentStep === 1) {
+        btnPrevious.style.visibility = 'hidden';
+      } else {
+        btnPrevious.style.visibility = 'visible';
+      }
+
+      // Next button text
+      if (nav.currentStep === nav.totalSteps) {
+        btnNext.textContent = 'Submit Assessment';
+        btnNext.className = 'lg-btn lg-btn-success lg-btn-lg';
+      } else {
+        btnNext.textContent = 'Next →';
+        btnNext.className = 'lg-btn lg-btn-primary lg-btn-lg';
+      }
+    },
+
+    // Event listeners setup
+    setupEventListeners: function() {
+      // Navigation buttons
+      document.getElementById('btn-previous').addEventListener('click', () => this.previousStep());
+      document.getElementById('btn-next').addEventListener('click', () => this.nextStep());
+      document.getElementById('btn-save-draft').addEventListener('click', () => this.saveSessionData());
+      document.getElementById('btn-help').addEventListener('click', () => this.showHelp());
+
+      // Keyboard shortcuts
+      document.addEventListener('keydown', (e) => {
+        if (e.altKey && e.key === 'ArrowLeft') {
+          e.preventDefault();
+          this.previousStep();
+        } else if (e.altKey && e.key === 'ArrowRight') {
+          e.preventDefault();
+          this.nextStep();
+        } else if (e.ctrlKey && e.key === 's') {
+          e.preventDefault();
+          this.saveSessionData();
+        }
+      });
+    },
+
+    // Auto-save functionality
+    startAutoSave: function() {
+      setInterval(() => {
+        this.saveSessionData();
+      }, 30000); // Auto-save every 30 seconds
+    },
+
+    // Time tracking
+    trackTime: function() {
+      setInterval(() => {
+        this.renderContext(); // Updates time display
+      }, 60000); // Update every minute
+    },
+
+    // Helper methods
+    showToast: function(message, type = 'info') {
+      // Simple toast implementation
+      const toast = document.createElement('div');
+      toast.className = 'wizard-toast';
+      toast.innerHTML = `
+        <div class="lg-flex lg-items-center lg-gap-3 lg-p-4 lg-bg-white lg-rounded-lg lg-shadow-lg">
+          <span>✨</span>
+          <span>${message}</span>
+          <button onclick="this.parentElement.parentElement.remove()" class="lg-btn lg-btn-ghost lg-btn-sm">×</button>
+        </div>
+      `;
+
+      toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+      `;
+
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    },
+
+    showAddCustomRisk: function() {
+      // Placeholder for custom risk addition modal
+      this.showToast('Custom risk addition coming in Phase 2!', 'info');
+    },
+
+    showHelp: function() {
+      // Placeholder for contextual help
+      this.showToast('Contextual help system coming soon!', 'info');
+    },
+
+    // Inherent Risk Assessment Logic
+    initializeInherentAssessment: function(risks) {
+      // Initialize assessments for existing risks
+      risks.forEach(risk => {
+        if (risk.likelihood && risk.impact && !WizardData.data.riskAssessments[risk.id]) {
+          WizardData.data.riskAssessments[risk.id] = {
+            likelihood: risk.likelihood,
+            impact: risk.impact,
+            score: risk.likelihood * risk.impact,
+            rationale: ''
+          };
+        }
+      });
+
+      // Update summary and initialize counters
+      setTimeout(() => {
+        this.updateAssessmentSummary();
+        this.initializeRationaleCounters();
+      }, 100);
+    },
+
+    calculateRiskLevel: function(score) {
+      if (score >= 20) return 'Very High';
+      if (score >= 12) return 'High';
+      if (score >= 6) return 'Medium';
+      return 'Low';
+    },
+
+    getRiskLevelColor: function(score) {
+      if (score >= 20) return 'danger';     // Very High - Red
+      if (score >= 12) return 'warning';    // High - Orange
+      if (score >= 6) return 'primary';     // Medium - Blue
+      return 'success';                     // Low - Green
+    },
+
+    generateProfessionalHeatMapCells: function(riskId, currentLikelihood, currentImpact) {
+      let cellsHtml = '';
+      for (let impact = 5; impact >= 1; impact--) { // Impact (Y-axis, top to bottom)
+        for (let likelihood = 1; likelihood <= 5; likelihood++) { // Likelihood (X-axis, left to right)
+          const score = likelihood * impact;
+          const isSelected = (impact === currentImpact && likelihood === currentLikelihood);
+          const riskLevel = this.calculateRiskLevel(score);
+          const colorClass = this.getRiskLevelColorClass(riskLevel);
+
+          cellsHtml += `
+            <div class="heat-map-cell-professional ${colorClass} ${isSelected ? 'selected' : ''}"
+                 data-risk-id="${riskId}"
+                 data-impact="${impact}"
+                 data-likelihood="${likelihood}"
+                 data-score="${score}"
+                 onclick="AssessmentWizard.selectHeatMapCell('${riskId}', ${likelihood}, ${impact})"
+                 onmouseover="AssessmentWizard.hoverHeatMapCell(this)"
+                 onmouseout="AssessmentWizard.unhoverHeatMapCell(this)"
+                 title="Impact: ${this.getImpactLabel(impact)}, Likelihood: ${this.getLikelihoodLabel(likelihood)}, Score: ${score}">
+               <span class="cell-score-professional">${score}</span>
+             </div>
+           `;
+        }
+      }
+      return cellsHtml;
+    },
+
+    getImpactLabel: function(impact) {
+      const labels = {
+        5: 'Severe',
+        4: 'Major',
+        3: 'Moderate',
+        2: 'Minor',
+        1: 'Insignificant'
+      };
+      return labels[impact] || impact;
+    },
+
+    getLikelihoodLabel: function(likelihood) {
+      const labels = {
+        1: 'Rare',
+        2: 'Unlikely',
+        3: 'Possible',
+        4: 'Likely',
+        5: 'Almost Certain'
+      };
+      return labels[likelihood] || likelihood;
+    },
+
+    getRiskLevelColorClass: function(riskLevel) {
+      switch(riskLevel) {
+        case 'Very High': return 'risk-very-high';
+        case 'High': return 'risk-high';
+        case 'Medium': return 'risk-medium';
+        case 'Low': return 'risk-low';
+        default: return 'risk-low';
+      }
+    },
+
+    selectHeatMapCell: function(riskId, likelihood, impact) {
+      const score = likelihood * impact;
+      const riskLevel = this.calculateRiskLevel(score);
+
+      // Update the data
+      if (!WizardData.data.riskAssessments[riskId]) {
+        WizardData.data.riskAssessments[riskId] = {};
+      }
+
+      WizardData.data.riskAssessments[riskId].likelihood = likelihood;
+      WizardData.data.riskAssessments[riskId].impact = impact;
+      WizardData.data.riskAssessments[riskId].score = score;
+
+      // Update visual state of heat map
+      const heatMapGrid = document.querySelector(`.heat-map-grid[data-risk-id="${riskId}"]`);
+      if (heatMapGrid) {
+        // Remove selected class from all cells
+        heatMapGrid.querySelectorAll('.heat-map-cell').forEach(cell => {
+          cell.classList.remove('selected');
+        });
+
+        // Add selected class to clicked cell
+        const selectedCell = heatMapGrid.querySelector(`[data-likelihood="${likelihood}"][data-impact="${impact}"]`);
+        if (selectedCell) {
+          selectedCell.classList.add('selected');
+        }
+      }
+
+      // Update the score display
+      const scoreDisplay = document.querySelector(`[data-risk-id="${riskId}"] .score-badge`);
+      const scoreLabelDisplay = document.querySelector(`[data-risk-id="${riskId}"] .score-label`);
+
+      if (scoreDisplay) {
+        scoreDisplay.textContent = score;
+        scoreDisplay.className = `score-badge lg-badge lg-badge-${this.getRiskLevelColor(score)} lg-text-lg`;
+      }
+
+      if (scoreLabelDisplay) {
+        scoreLabelDisplay.textContent = riskLevel;
+      }
+
+      // Update rationale requirement indicator
+      const requiredIndicator = document.querySelector(`#rationale-${riskId}`).closest('.rationale-section').querySelector('.required-indicator');
+      if (requiredIndicator) {
+        const isRequired = this.isRationaleRequired({id: riskId}, score);
+        requiredIndicator.classList.toggle('visible', isRequired);
+        requiredIndicator.classList.toggle('hidden', !isRequired);
+      }
+
+      // Update status
+      const statusIndicator = document.querySelector(`#status-${riskId}`);
+      if (statusIndicator) {
+        statusIndicator.className = 'status-indicator assessed';
+        statusIndicator.innerHTML = '<span class="status-icon">✅</span><span class="status-text">Assessment Complete</span>';
+      }
+
+      // Save data and update summary
+      this.saveSessionData();
+      this.updateAssessmentSummary();
+
+      // Show toast notification
+      this.showToast(`Risk updated: ${riskLevel} (L:${likelihood} × I:${impact} = ${score})`, 'success');
+    },
+
+    hoverHeatMapCell: function(cell) {
+      if (!cell.classList.contains('selected')) {
+        cell.classList.add('hover-preview');
+      }
+    },
+
+    unhoverHeatMapCell: function(cell) {
+      cell.classList.remove('hover-preview');
+    },
+
+    updateAssessmentSummary: function() {
+      const selectedRisks = WizardData.data.selectedRisks || [];
+      const risks = WizardData.mockRisks.filter(r => selectedRisks.includes(r.id));
+
+      let assessedCount = 0;
+      let veryHighCount = 0;
+      let highCount = 0;
+      let mediumCount = 0;
+      let lowCount = 0;
+      let totalScore = 0;
+
+      risks.forEach(risk => {
+        const assessment = WizardData.data.riskAssessments[risk.id];
+        if (assessment && assessment.score) {
+          assessedCount++;
+          totalScore += assessment.score;
+          const riskLevel = this.calculateRiskLevel(assessment.score);
+
+          switch(riskLevel) {
+            case 'Very High':
+              veryHighCount++;
+              break;
+            case 'High':
+              highCount++;
+              break;
+            case 'Medium':
+              mediumCount++;
+              break;
+            case 'Low':
+              lowCount++;
+              break;
+          }
+        }
+      });
+
+      // Update counters in the UI
+      const counters = {
+        'assessed-count': assessedCount,
+        'very-high-count': veryHighCount,
+        'high-count': highCount,
+        'medium-count': mediumCount,
+        'low-count': lowCount
+      };
+
+      Object.entries(counters).forEach(([id, count]) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = count;
+      });
+
+      // Update overall risk level
+      const overallRiskEl = document.getElementById('overall-risk-level');
+      if (overallRiskEl && assessedCount > 0) {
+        const avgScore = totalScore / assessedCount;
+        const overallLevel = this.calculateRiskLevel(Math.round(avgScore));
+        overallRiskEl.textContent = overallLevel;
+        overallRiskEl.className = `lg-badge lg-badge-${this.getRiskLevelColor(Math.round(avgScore))} lg-ml-2`;
+      }
+    },
+
+    isRationaleRequired: function(risk, score) {
+      return score >= 12; // High and Very High risks require rationale
+    },
+
+    updateRationale: function(riskId, value) {
+      if (!WizardData.data.riskAssessments[riskId]) {
+        WizardData.data.riskAssessments[riskId] = {};
+      }
+      WizardData.data.riskAssessments[riskId].rationale = value;
+      this.saveSessionData();
+    },
+
+    updateRationaleWithValidation: function(riskId, value) {
+      this.updateRationale(riskId, value);
+
+      // Update character count
+      const charCountEl = document.getElementById(`char-count-${riskId}`);
+      if (charCountEl) {
+        charCountEl.textContent = value.length;
+
+        // Determine if quality threshold is met
+        const assessment = WizardData.data.riskAssessments[riskId];
+        const score = assessment ? assessment.score : 0;
+        const minLength = this.isRationaleRequired({id: riskId}, score) ? 50 : 0;
+        const isQualityMet = value.length >= minLength;
+
+        // Update validation indicator
+        const validationEl = document.getElementById(`validation-${riskId}`);
+        if (validationEl) {
+          if (isQualityMet && value.length > 0) {
+            validationEl.classList.remove('hidden');
+            validationEl.innerHTML = '<span class="validation-icon">✓</span><span class="validation-text">Good quality</span>';
+          } else {
+            validationEl.classList.add('hidden');
+          }
+        }
+      }
+    },
+
+    initializeRationaleCounters: function() {
+      // Initialize character counters for all risk rationale fields
+      document.querySelectorAll('.rationale-textarea-modern').forEach(textarea => {
+        const riskId = textarea.getAttribute('data-risk-id');
+        if (riskId) {
+          this.updateRationaleWithValidation(riskId, textarea.value);
+        }
+      });
+    },
+
+    acceptAISuggestion: function(riskId) {
+      const risk = WizardData.mockRisks.find(r => r.id === riskId);
+      if (risk) {
+        this.selectHeatMapCell(riskId, risk.likelihood, risk.impact);
+        this.showToast('AI suggestion accepted! You can still modify if needed.', 'success');
+      }
+    },
+
+    modifyScore: function(riskId) {
+      this.showToast('Click on the heat map to select your preferred scoring', 'info');
+    },
+
+    generateRationale: function(riskId) {
+      const risk = WizardData.mockRisks.find(r => r.id === riskId);
+      const assessment = WizardData.data.riskAssessments[riskId];
+
+      if (risk && assessment) {
+        // Generate AI-suggested rationale based on risk characteristics
+        let rationale = `This risk has been assessed as ${this.calculateRiskLevel(assessment.score)} (L:${assessment.likelihood} × I:${assessment.impact} = ${assessment.score}) based on `;
+
+        if (risk.aiSuggested) {
+          rationale += `recent industry analysis showing ${risk.aiContext.toLowerCase()}. `;
+        }
+
+        rationale += `The likelihood score reflects ${this.getLikelihoodJustification(assessment.likelihood)} while the impact score considers ${this.getImpactJustification(assessment.impact)}. `;
+
+        if (assessment.score >= 12) {
+          rationale += `Given the high risk level, this requires immediate attention and robust controls.`;
+        } else {
+          rationale += `This risk level is within acceptable parameters with appropriate monitoring.`;
+        }
+
+        // Set the rationale
+        const rationaleField = document.getElementById(`rationale-${riskId}`);
+        if (rationaleField) {
+          rationaleField.value = rationale;
+          this.updateRationaleWithValidation(riskId, rationale);
+        }
+
+        this.showToast('AI rationale generated! Feel free to edit as needed.', 'success');
+      }
+    },
+
+    getLikelihoodJustification: function(likelihood) {
+      switch(likelihood) {
+        case 1: return 'very rare occurrence patterns in our operating environment';
+        case 2: return 'unlikely events that could occur under specific circumstances';
+        case 3: return 'possible events that may occur during normal operations';
+        case 4: return 'likely events based on historical data and current controls';
+        case 5: return 'almost certain events given current operating conditions';
+        default: return 'standard probability assessments';
+      }
+    },
+
+    getImpactJustification: function(impact) {
+      switch(impact) {
+        case 1: return 'minimal operational disruption and negligible financial impact';
+        case 2: return 'minor operational issues with limited financial exposure';
+        case 3: return 'moderate business impact affecting key processes or systems';
+        case 4: return 'major operational disruption with significant financial consequences';
+        case 5: return 'severe impact threatening business continuity and regulatory standing';
+        default: return 'standard impact considerations';
+      }
+    },
+
+    // Enhanced Control Mapping Implementation
+    renderControlMappingPane: function(pane) {
+      const selectedRisks = WizardData.data.selectedRisks || [];
+      const risks = WizardData.mockRisks.filter(r => selectedRisks.includes(r.id));
+
+      if (risks.length === 0) {
+        pane.innerHTML = `
+          <div class="lg-card-body lg-p-8 lg-text-center">
+            <div class="empty-state lg-py-12">
+              <span class="lg-text-6xl lg-mb-4 lg-block">🔗</span>
+              <h3 class="lg-heading-2 lg-mb-4">No Risks Selected</h3>
+              <p class="lg-text-lg lg-text-gray-600 lg-mb-6">
+                Please go back to Step 1 and select risks to map controls.
+              </p>
+              <button class="lg-btn lg-btn-primary" onclick="AssessmentWizard.goToStep(1)">
+                ← Back to Risk Selection
+              </button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      pane.innerHTML = `
+        <div class="lg-card-body lg-p-8">
+          <!-- Header Section -->
+          <div class="wizard-header lg-mb-8">
+            <h2 class="lg-heading-1 lg-mb-4">Control Mapping</h2>
+            <p class="lg-text-lg lg-text-gray-600 lg-leading-relaxed">
+              Map existing controls to your risks. Our AI will suggest the best matches from your control library and identify any gaps.
+            </p>
+          </div>
+
+          <!-- Control Mapping Progress -->
+          <div class="control-mapping-progress lg-mb-8">
+            <div class="lg-flex lg-items-center lg-justify-between lg-p-4 lg-bg-green-50 lg-rounded-lg lg-border lg-border-green-200">
+              <div class="lg-flex lg-items-center lg-gap-3">
+                <span class="lg-text-2xl">🔗</span>
+                <div>
+                  <div class="lg-font-semibold lg-text-green-900">Control Mapping Progress</div>
+                  <div class="lg-text-sm lg-text-green-700">
+                    <span id="mapped-risks-count">0</span> of ${risks.length} risks have controls mapped
+                  </div>
+                </div>
+              </div>
+              <div class="coverage-indicator">
+                <span class="lg-text-sm lg-text-green-600">Control Coverage:</span>
+                <span id="control-coverage" class="lg-badge lg-badge-success lg-ml-2">0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Global Control Search -->
+          <div class="global-control-search lg-mb-8">
+            <div class="search-header lg-mb-4">
+              <h3 class="lg-heading-3 lg-mb-2">Control Library Search</h3>
+              <p class="lg-text-sm lg-text-gray-600">Search across all available controls to find matches for your risks</p>
+            </div>
+
+            <div class="search-input-section">
+              <div class="lg-flex lg-gap-3">
+                <div class="lg-flex-1">
+                  <input type="text"
+                         id="global-control-search"
+                         class="lg-input lg-input-lg"
+                         placeholder="Search controls (e.g., 'wire authorization', 'dual approval', 'reconciliation'...)"
+                         oninput="AssessmentWizard.searchControls(this.value)">
+                </div>
+                <button class="lg-btn lg-btn-primary lg-btn-lg" onclick="AssessmentWizard.searchControls(document.getElementById('global-control-search').value)">
+                  🔍 Search
+                </button>
+              </div>
+
+              <div class="search-suggestions lg-mt-3">
+                <span class="lg-text-xs lg-text-gray-500">Popular searches: </span>
+                <button class="suggestion-tag" onclick="AssessmentWizard.quickSearch('authorization')">Authorization</button>
+                <button class="suggestion-tag" onclick="AssessmentWizard.quickSearch('monitoring')">Monitoring</button>
+                <button class="suggestion-tag" onclick="AssessmentWizard.quickSearch('reconciliation')">Reconciliation</button>
+                <button class="suggestion-tag" onclick="AssessmentWizard.quickSearch('approval')">Approval</button>
+              </div>
+            </div>
+
+            <div id="global-search-results" class="search-results-section" style="display: none;">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Risk-Specific Control Mapping -->
+          <div class="risk-control-mapping">
+            <div class="mapping-header lg-mb-6">
+              <h3 class="lg-heading-3 lg-mb-2">Map Controls to Risks</h3>
+              <p class="lg-text-sm lg-text-gray-600">Review AI-suggested controls for each risk and add additional controls as needed</p>
+            </div>
+
+            <div class="risk-mapping-cards">
+              ${risks.map((risk, index) => this.renderRiskControlMappingCard(risk, index)).join('')}
+            </div>
+          </div>
+
+          <!-- Control Gap Analysis -->
+          <div class="gap-analysis-section lg-mt-8">
+            <div class="gap-analysis-header lg-mb-4">
+              <div class="lg-flex lg-items-center lg-gap-3">
+                <span class="lg-text-2xl">💡</span>
+                <h3 class="lg-heading-3">AI Gap Analysis</h3>
+              </div>
+              <p class="lg-text-sm lg-text-gray-600">Potential control gaps and improvement opportunities</p>
+            </div>
+
+            <div id="gap-analysis-results" class="gap-analysis-results">
+              <!-- Populated by JavaScript after mapping -->
+            </div>
+          </div>
+
+          <!-- Control Mapping Summary -->
+          <div class="control-mapping-summary lg-mt-8">
+            <div class="summary-header lg-mb-4">
+              <span class="lg-text-2xl">📊</span>
+              <h3 class="lg-heading-3">Control Mapping Summary</h3>
+            </div>
+
+            <div class="control-stats-grid">
+              <div class="control-stat-card">
+                <div class="stat-value" id="total-controls-mapped">0</div>
+                <div class="stat-label">Total Controls Mapped</div>
+              </div>
+
+              <div class="control-stat-card">
+                <div class="stat-value" id="preventive-controls">0</div>
+                <div class="stat-label">Preventive Controls</div>
+              </div>
+
+              <div class="control-stat-card">
+                <div class="stat-value" id="detective-controls">0</div>
+                <div class="stat-label">Detective Controls</div>
+              </div>
+
+              <div class="control-stat-card">
+                <div class="stat-value" id="automated-controls">0</div>
+                <div class="stat-label">Automated Controls</div>
+              </div>
+            </div>
+
+            <div class="next-step-panel lg-mt-6">
+              <div class="lg-flex lg-items-center lg-justify-between lg-p-6 lg-bg-gray-50 lg-rounded-lg">
+                <div class="lg-flex lg-items-center lg-gap-4">
+                  <span class="lg-text-2xl">🎯</span>
+                  <div>
+                    <div class="lg-font-semibold lg-text-gray-900">Ready for Control Effectiveness</div>
+                    <div class="lg-text-sm lg-text-gray-600">
+                      Evaluate how well your mapped controls are performing
+                    </div>
+                  </div>
+                </div>
+                <div class="lg-text-sm lg-text-gray-500">
+                  Next: Control Effectiveness Assessment
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Initialize control mapping data if not exists
+      if (!WizardData.data.mappedControls) {
+        WizardData.data.mappedControls = {};
+      }
+
+      // Auto-suggest controls for each risk
+      setTimeout(() => {
+        this.generateAIControlSuggestions();
+        this.updateControlMappingStats();
+      }, 100);
+    },
+
+    renderRiskControlMappingCard: function(risk, index) {
+      const mappedControls = WizardData.data.mappedControls[risk.id] || [];
+      const hasMappedControls = mappedControls.length > 0;
+
+      return `
+        <div class="risk-control-card ${hasMappedControls ? 'has-controls' : ''}" data-risk-id="${risk.id}">
+
+          <!-- Risk Header -->
+          <div class="risk-control-header">
+            <div class="risk-info-section">
+              <h4 class="risk-title">${risk.title}</h4>
+              <div class="risk-meta">
+                <span class="risk-category lg-badge lg-badge-gray">${risk.category}</span>
+                <span class="risk-score lg-badge lg-badge-${this.getRiskLevelColor(risk.riskScore)}">${risk.riskScore}</span>
+              </div>
+            </div>
+
+            <div class="control-status-section">
+              <div class="control-count-badge ${hasMappedControls ? 'has-controls' : 'no-controls'}">
+                <span class="count-number">${mappedControls.length}</span>
+                <span class="count-label">Controls</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Suggested Controls -->
+          <div class="ai-suggestions-section lg-mb-4">
+            <div class="ai-section-header">
+              <div class="lg-flex lg-items-center lg-gap-2">
+                <span class="ai-icon">✨</span>
+                <span class="lg-text-sm lg-font-semibold lg-text-gray-700">AI Suggested Controls</span>
+              </div>
+            </div>
+
+            <div id="ai-controls-${risk.id}" class="ai-control-suggestions">
+              <!-- Populated by generateAIControlSuggestions -->
+            </div>
+          </div>
+
+          <!-- Mapped Controls Display -->
+          <div class="mapped-controls-section">
+            <div class="mapped-controls-header">
+              <span class="lg-text-sm lg-font-semibold lg-text-gray-700">Mapped Controls</span>
+              <button class="lg-btn lg-btn-xs lg-btn-outline" onclick="AssessmentWizard.showControlLibrary('${risk.id}')">
+                + Add Control
+              </button>
+            </div>
+
+            <div id="mapped-controls-${risk.id}" class="mapped-controls-list">
+              ${mappedControls.length > 0 ?
+                mappedControls.map(control => this.renderMappedControl(control, risk.id)).join('') :
+                '<div class="no-controls-message lg-text-sm lg-text-gray-500 lg-p-4">No controls mapped yet. Accept AI suggestions or search the control library.</div>'
+              }
+            </div>
+          </div>
+        </div>
+      `;
+    },
+
+    renderMappedControl: function(control, riskId) {
+      return `
+        <div class="mapped-control-item" data-control-id="${control.id}">
+          <div class="control-content">
+            <div class="control-main-info">
+              <h5 class="control-title">${control.title}</h5>
+              <p class="control-description lg-text-xs lg-text-gray-600">${control.description}</p>
+            </div>
+
+            <div class="control-attributes">
+              <span class="control-type lg-badge lg-badge-${control.type === 'Preventive' ? 'primary' : 'info'}">${control.type}</span>
+              <span class="control-automation lg-badge lg-badge-${control.automated ? 'success' : 'warning'}">${control.automated ? 'Automated' : 'Manual'}</span>
+            </div>
+          </div>
+
+          <div class="control-actions">
+            <button class="lg-btn lg-btn-xs lg-btn-ghost" onclick="AssessmentWizard.removeControlMapping('${riskId}', '${control.id}')">
+              Remove
+            </button>
+          </div>
+        </div>
+      `;
+    },
+
+    // Control Library and Search Functions
+    generateAIControlSuggestions: function() {
+      const selectedRisks = WizardData.data.selectedRisks || [];
+      const risks = WizardData.mockRisks.filter(r => selectedRisks.includes(r.id));
+
+      risks.forEach(risk => {
+        const suggestions = this.getControlSuggestionsForRisk(risk);
+        const suggestionsContainer = document.getElementById(`ai-controls-${risk.id}`);
+
+        if (suggestionsContainer) {
+          suggestionsContainer.innerHTML = suggestions.map(control => `
+            <div class="ai-control-suggestion" data-control-id="${control.id}">
+              <div class="suggestion-content">
+                <div class="suggestion-header">
+                  <span class="match-percentage lg-badge lg-badge-success">${control.matchPercentage}% Match</span>
+                  <span class="control-type lg-badge lg-badge-${control.type === 'Preventive' ? 'primary' : 'info'}">${control.type}</span>
+                </div>
+
+                <h5 class="suggestion-title">${control.title}</h5>
+                <p class="suggestion-description lg-text-xs lg-text-gray-600">${control.description}</p>
+
+                <div class="suggestion-meta">
+                  <span class="automation-status lg-text-xs lg-text-gray-500">
+                    ${control.automated ? '🤖 Automated' : '👤 Manual'}
+                  </span>
+                  <span class="effectiveness-hint lg-text-xs lg-text-gray-500">
+                    • Effectiveness: ${control.effectiveness}
+                  </span>
+                </div>
+              </div>
+
+              <div class="suggestion-actions">
+                <button class="lg-btn lg-btn-xs lg-btn-primary" onclick="AssessmentWizard.acceptControlSuggestion('${risk.id}', '${control.id}')">
+                  Add Control
+                </button>
+              </div>
+            </div>
+          `).join('');
+        }
+      });
+    },
+
+    getControlSuggestionsForRisk: function(risk) {
+      // Mock control library with AI matching logic
+      const controlLibrary = [
+        {
+          id: 'C001',
+          title: 'Dual authorization for wire transfers >$10k',
+          description: 'Requires two-person approval for wire transfers exceeding $10,000',
+          type: 'Preventive',
+          automated: true,
+          effectiveness: 'High',
+          matchPercentage: 95,
+          categories: ['Wire Transfer', 'Authorization', 'Fraud Prevention']
+        },
+        {
+          id: 'C002',
+          title: 'Daily wire transfer reconciliation',
+          description: 'Daily reconciliation of all wire transfer transactions against core banking system',
+          type: 'Detective',
+          automated: false,
+          effectiveness: 'Medium-High',
+          matchPercentage: 89,
+          categories: ['Wire Transfer', 'Reconciliation', 'Monitoring']
+        },
+        {
+          id: 'C003',
+          title: 'Real-time fraud detection monitoring',
+          description: 'AI-powered real-time monitoring for suspicious wire transfer patterns',
+          type: 'Detective',
+          automated: true,
+          effectiveness: 'High',
+          matchPercentage: 92,
+          categories: ['Fraud Detection', 'Monitoring', 'AI/ML']
+        },
+        {
+          id: 'C004',
+          title: 'Customer callback verification for wires >$5k',
+          description: 'Mandatory customer callback to verify wire transfer instructions',
+          type: 'Preventive',
+          automated: false,
+          effectiveness: 'Medium',
+          matchPercentage: 85,
+          categories: ['Verification', 'Customer Contact', 'Fraud Prevention']
+        },
+        {
+          id: 'C005',
+          title: 'Wire transfer limit controls',
+          description: 'System-enforced daily and per-transaction limits for wire transfers',
+          type: 'Preventive',
+          automated: true,
+          effectiveness: 'High',
+          matchPercentage: 78,
+          categories: ['Limits', 'System Controls', 'Authorization']
+        }
+      ];
+
+      // Filter and sort controls by relevance to risk
+      let relevantControls = controlLibrary.filter(control => {
+        if (risk.title.toLowerCase().includes('wire')) {
+          return control.categories.some(cat => cat.includes('Wire') || cat.includes('Fraud') || cat.includes('Authorization'));
+        }
+        if (risk.title.toLowerCase().includes('fraud')) {
+          return control.categories.some(cat => cat.includes('Fraud') || cat.includes('Monitoring') || cat.includes('Verification'));
+        }
+        return true; // Default: show all controls for other risks
+      });
+
+      // Sort by match percentage
+      relevantControls.sort((a, b) => b.matchPercentage - a.matchPercentage);
+
+      // Return top 3 suggestions
+      return relevantControls.slice(0, 3);
+    },
+
+    acceptControlSuggestion: function(riskId, controlId) {
+      const control = this.getControlById(controlId);
+      if (control) {
+        this.mapControlToRisk(riskId, control);
+        this.showToast(`Control "${control.title}" mapped to risk`, 'success');
+      }
+    },
+
+    mapControlToRisk: function(riskId, control) {
+      if (!WizardData.data.mappedControls[riskId]) {
+        WizardData.data.mappedControls[riskId] = [];
+      }
+
+      // Check if control is already mapped
+      const isAlreadyMapped = WizardData.data.mappedControls[riskId].some(c => c.id === control.id);
+      if (!isAlreadyMapped) {
+        WizardData.data.mappedControls[riskId].push(control);
+
+        // Update UI
+        this.updateMappedControlsDisplay(riskId);
+        this.updateControlMappingStats();
+        this.saveSessionData();
+      }
+    },
+
+    removeControlMapping: function(riskId, controlId) {
+      if (WizardData.data.mappedControls[riskId]) {
+        WizardData.data.mappedControls[riskId] = WizardData.data.mappedControls[riskId].filter(c => c.id !== controlId);
+
+        // Update UI
+        this.updateMappedControlsDisplay(riskId);
+        this.updateControlMappingStats();
+        this.saveSessionData();
+
+        this.showToast('Control mapping removed', 'info');
+      }
+    },
+
+    updateMappedControlsDisplay: function(riskId) {
+      const mappedControls = WizardData.data.mappedControls[riskId] || [];
+      const container = document.getElementById(`mapped-controls-${riskId}`);
+
+      if (container) {
+        if (mappedControls.length > 0) {
+          container.innerHTML = mappedControls.map(control => this.renderMappedControl(control, riskId)).join('');
+        } else {
+          container.innerHTML = '<div class="no-controls-message lg-text-sm lg-text-gray-500 lg-p-4">No controls mapped yet. Accept AI suggestions or search the control library.</div>';
+        }
+      }
+
+      // Update control count badge
+      const countBadge = document.querySelector(`[data-risk-id="${riskId}"] .control-count-badge`);
+      if (countBadge) {
+        const countNumber = countBadge.querySelector('.count-number');
+        if (countNumber) countNumber.textContent = mappedControls.length;
+
+        countBadge.classList.toggle('has-controls', mappedControls.length > 0);
+        countBadge.classList.toggle('no-controls', mappedControls.length === 0);
+      }
+    },
+
+    updateControlMappingStats: function() {
+      const selectedRisks = WizardData.data.selectedRisks || [];
+      let totalControls = 0;
+      let preventiveControls = 0;
+      let detectiveControls = 0;
+      let automatedControls = 0;
+      let risksWithControls = 0;
+
+      selectedRisks.forEach(riskId => {
+        const controls = WizardData.data.mappedControls[riskId] || [];
+        if (controls.length > 0) risksWithControls++;
+
+        controls.forEach(control => {
+          totalControls++;
+          if (control.type === 'Preventive') preventiveControls++;
+          if (control.type === 'Detective') detectiveControls++;
+          if (control.automated) automatedControls++;
+        });
+      });
+
+      // Update stats in UI
+      const stats = {
+        'total-controls-mapped': totalControls,
+        'preventive-controls': preventiveControls,
+        'detective-controls': detectiveControls,
+        'automated-controls': automatedControls,
+        'mapped-risks-count': risksWithControls
+      };
+
+      Object.entries(stats).forEach(([id, value]) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = value;
+      });
+
+      // Update coverage percentage
+      const coverageEl = document.getElementById('control-coverage');
+      if (coverageEl && selectedRisks.length > 0) {
+        const coverage = Math.round((risksWithControls / selectedRisks.length) * 100);
+        coverageEl.textContent = `${coverage}%`;
+      }
+    },
+
+    getControlById: function(controlId) {
+      // This would normally query your control database
+      const mockControls = {
+        'C001': {
+          id: 'C001',
+          title: 'Dual authorization for wire transfers >$10k',
+          description: 'Requires two-person approval for wire transfers exceeding $10,000',
+          type: 'Preventive',
+          automated: true,
+          effectiveness: 'High'
+        },
+        'C002': {
+          id: 'C002',
+          title: 'Daily wire transfer reconciliation',
+          description: 'Daily reconciliation of all wire transfer transactions against core banking system',
+          type: 'Detective',
+          automated: false,
+          effectiveness: 'Medium-High'
+        },
+        'C003': {
+          id: 'C003',
+          title: 'Real-time fraud detection monitoring',
+          description: 'AI-powered real-time monitoring for suspicious wire transfer patterns',
+          type: 'Detective',
+          automated: true,
+          effectiveness: 'High'
+        },
+        'C004': {
+          id: 'C004',
+          title: 'Customer callback verification for wires >$5k',
+          description: 'Mandatory customer callback to verify wire transfer instructions',
+          type: 'Preventive',
+          automated: false,
+          effectiveness: 'Medium'
+        },
+        'C005': {
+          id: 'C005',
+          title: 'Wire transfer limit controls',
+          description: 'System-enforced daily and per-transaction limits for wire transfers',
+          type: 'Preventive',
+          automated: true,
+          effectiveness: 'High'
+        }
+      };
+
+      return mockControls[controlId];
+    },
+
+    searchControls: function(query) {
+      // Implementation for global control search
+      const resultsContainer = document.getElementById('global-search-results');
+      if (!query || query.length < 2) {
+        resultsContainer.style.display = 'none';
+        return;
+      }
+
+      // Mock search results
+      const searchResults = [
+        this.getControlById('C001'),
+        this.getControlById('C002'),
+        this.getControlById('C003')
+      ].filter(control =>
+        control.title.toLowerCase().includes(query.toLowerCase()) ||
+        control.description.toLowerCase().includes(query.toLowerCase())
+      );
+
+      resultsContainer.innerHTML = `
+        <div class="search-results-header lg-mb-3">
+          <span class="lg-text-sm lg-font-semibold">Found ${searchResults.length} controls matching "${query}"</span>
+        </div>
+        <div class="search-results-list">
+          ${searchResults.map(control => `
+            <div class="search-result-item">
+              <div class="result-content">
+                <h5 class="result-title">${control.title}</h5>
+                <p class="result-description lg-text-sm lg-text-gray-600">${control.description}</p>
+                <div class="result-meta">
+                  <span class="lg-badge lg-badge-${control.type === 'Preventive' ? 'primary' : 'info'}">${control.type}</span>
+                  <span class="lg-badge lg-badge-${control.automated ? 'success' : 'warning'}">${control.automated ? 'Automated' : 'Manual'}</span>
+                </div>
+              </div>
+              <div class="result-actions">
+                <button class="lg-btn lg-btn-xs lg-btn-outline" onclick="AssessmentWizard.showControlDetails('${control.id}')">
+                  View Details
+                </button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      resultsContainer.style.display = 'block';
+    },
+
+    quickSearch: function(term) {
+      document.getElementById('global-control-search').value = term;
+      this.searchControls(term);
+    },
+
+    showControlLibrary: function(riskId) {
+      this.showToast('Control library browser coming in next iteration!', 'info');
+    },
+
+    showControlDetails: function(controlId) {
+      this.showToast('Detailed control view coming soon!', 'info');
+    }
+  };
+
+  // Initialize the wizard when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    AssessmentWizard.init();
+  });
+</script>
+<!-- Enhanced CSS for Control Mapping and other improvements --><!-- Wizard-specific Styles -->
+<div class="row sectionBlockLayout text-start" style="display: flex; flex-wrap: wrap; min-height: auto; margin: 0px; padding: 0px;">
+  <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;"><div class="col-lg-12 columnBlockLayout" style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; padding: 0px;"></div></div>
+</div>
