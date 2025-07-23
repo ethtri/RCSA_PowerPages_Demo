@@ -1,0 +1,205 @@
+/* =========================================
+   CRITICAL FALLBACK STYLES FOR DASHBOARD
+   ========================================= */
+
+/* CSS Variables - Essential Design Tokens */
+:root {
+    --captech-primary: #0066CC;
+    --captech-success: #0D7F3F;
+    --captech-warning: #CC6600;
+    --captech-danger: #CC0000;
+    --captech-light: #F5F5F5;
+    --captech-border: #E5E5E5;
+    --captech-orange: #FEA002;
+    
+    /* RCSA Design System Variables */
+    --fcb-primary: #FEA002;
+    --fcb-primary-light: #FFB347;
+    --fcb-primary-dark: #E6900A;
+    --fcb-success: #28A745;
+    --fcb-warning: #FFC107;
+    --fcb-danger: #DC3545;
+    --fcb-info: #17A2B8;
+    --fcb-gray-50: #F8F9FA;
+    --fcb-gray-100: #E9ECEF;
+    --fcb-gray-200: #DEE2E6;
+    --fcb-gray-300: #CED4DA;
+    --fcb-gray-400: #6C757D;
+    --fcb-gray-500: #495057;
+    --fcb-gray-600: #343A40;
+    --fcb-gray-700: #212529;
+    --fcb-white: #FFFFFF;
+}
+
+/* Force override Power Pages defaults */
+body {
+    background-color: var(--captech-light) !important;
+    font-family: 'Segoe UI', system-ui, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.page-copy, .wrapper-body, .container-fluid {
+    background-color: var(--captech-light) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Hide default Power Pages navigation */
+.navbar,
+.header,
+.site-header,
+.page-header,
+div[role="navigation"]:not(.rcsa-nav),
+nav[role="navigation"]:not(.rcsa-nav),
+.breadcrumb,
+.navbar-brand,
+.navbar-nav,
+.navbar-header,
+header.navbar {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Force show our custom header */
+.rcsa-header {
+    display: block !important;
+    visibility: visible !important;
+    background: linear-gradient(135deg, var(--captech-primary) 0%, #004499 100%) !important;
+    color: white !important;
+    padding: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+.rcsa-header-content {
+    padding: 1rem 2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+}
+
+/* Dashboard Cards */
+.greeting-card {
+    background: white !important;
+    border-radius: 12px !important;
+    padding: 2rem !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+    margin-bottom: 2rem !important;
+    border-left: 4px solid var(--captech-primary) !important;
+}
+
+.quick-action-btn {
+    background: white !important;
+    border: 2px solid var(--captech-border) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    height: 120px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.quick-action-btn:hover {
+    border-color: var(--captech-primary) !important;
+    box-shadow: 0 6px 12px rgba(0,102,204,0.15) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Main content spacing */
+.main-content {
+    padding-top: 100px !important;
+    background-color: var(--captech-light) !important;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: var(--captech-primary) !important;
+    border-color: var(--captech-primary) !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #0052A3 !important;
+    border-color: #0052A3 !important;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: var(--captech-primary) !important;
+    margin-bottom: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+/* AI Insight styling */
+.ai-insight {
+    background: linear-gradient(135deg, #F0F7FF 0%, #E3F2FD 100%) !important;
+    border: 1px solid #BBDEFB !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+}
+
+/* Performance stats */
+.performance-stat {
+    text-align: center !important;
+    padding: 1.5rem !important;
+}
+
+.metric-value {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: var(--captech-orange) !important;
+    line-height: 1 !important;
+}
+
+/* Status badges */
+.status-badge {
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+}
+
+.status-pending { 
+    background-color: #E3F2FD !important; 
+    color: #1976D2 !important; 
+}
+
+.status-progress { 
+    background-color: #FFF3E0 !important; 
+    color: #F57C00 !important; 
+}
+
+.status-complete { 
+    background-color: #E8F5E8 !important; 
+    color: #2E7D32 !important; 
+}
+
+/* Trend indicators */
+.trend-indicator {
+    font-size: 0.875rem !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+}
+
+.trend-down { 
+    background-color: #FFEBEE !important; 
+    color: #D32F2F !important; 
+}

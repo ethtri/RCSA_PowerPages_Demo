@@ -1,0 +1,204 @@
+/* =========================================
+   CRITICAL FALLBACK STYLES FOR ASSESSMENT WIZARD
+   ========================================= */
+
+/* Critical fallback styles for residual risk assessment */
+.residual-assessment-progress {
+    background: linear-gradient(135deg, #F8FBFF 0%, #EDF4FF 100%);
+    border: 1px solid #B3D7FF;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.heat-map-cell {
+    aspect-ratio: 1;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+/* Heat map color fallbacks */
+.heat-map-cell.risk-1, .heat-map-cell.risk-2, .heat-map-cell.risk-3, .heat-map-cell.risk-4, .heat-map-cell.risk-5 { 
+    background: #d4edda !important; color: #155724 !important; 
+}
+.heat-map-cell.risk-6, .heat-map-cell.risk-7, .heat-map-cell.risk-8, .heat-map-cell.risk-9, .heat-map-cell.risk-10 { 
+    background: #d1ecf1 !important; color: #0c5460 !important; 
+}
+.heat-map-cell.risk-11, .heat-map-cell.risk-12, .heat-map-cell.risk-13, .heat-map-cell.risk-14, .heat-map-cell.risk-15 { 
+    background: #fff3cd !important; color: #856404 !important; 
+}
+.heat-map-cell.risk-16, .heat-map-cell.risk-17, .heat-map-cell.risk-18, .heat-map-cell.risk-19, .heat-map-cell.risk-20 { 
+    background: #f8d7da !important; color: #721c24 !important; 
+}
+.heat-map-cell.risk-21, .heat-map-cell.risk-22, .heat-map-cell.risk-23, .heat-map-cell.risk-24, .heat-map-cell.risk-25 { 
+    background: #f5c6cb !important; color: #721c24 !important; 
+}
+
+.heat-map-cell:hover {
+    transform: scale(1.05);
+    border-color: #0066CC;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,102,204,0.2);
+}
+
+.heat-map-cell.selected {
+    border-color: #0066CC;
+    border-width: 3px;
+    background: #e3f2fd;
+}
+
+.residual-assessment-card {
+    background: white;
+    border: 2px solid #E5E8EC;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: #0066CC;
+    border-color: #0066CC;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0052A3;
+    border-color: #0052A3;
+}
+
+/* =========================================
+   NAVIGATION & PROGRESS STYLES - IMPROVED ALIGNMENT
+   ========================================= */
+
+.current-step-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--captech-primary);
+    background: rgba(0,102,204,0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0,102,204,0.2);
+}
+
+/* Force equal distribution of steps with CSS Grid */
+.progress-indicator {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    align-items: start;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 80px;
+    justify-content: flex-start;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.step-circle.completed {
+    background: var(--captech-success);
+    color: white;
+}
+
+.step-circle.current {
+    background: var(--captech-primary);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(0,102,204,0.2);
+}
+
+.step-circle.future {
+    background: #F5F5F5;
+    color: #999;
+    border: 2px solid #E5E5E5;
+}
+
+.step-label {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    max-width: 80px;
+}
+
+.step-label.completed {
+    color: var(--captech-success);
+    font-weight: 600;
+}
+
+.step-label.current {
+    color: var(--captech-primary);
+    font-weight: 600;
+}
+
+.step-label.future {
+    color: #999;
+}
+
+/* Perfect step connector alignment with CSS Grid */
+.step-connector {
+    position: absolute;
+    top: 20px; /* Align with center of 40px circle (20px from top) */
+    left: calc(50% + 20px); /* Start from center + radius */
+    right: calc(-50% + 20px); /* End at next circle center - radius */
+    height: 2px;
+    background: #E5E5E5;
+    z-index: 1;
+    display: block;
+}
+
+.step-connector.completed {
+    background: var(--captech-success);
+}
+
+.step:last-child .step-connector {
+    display: none;
+}
+
+/* Additional alignment helpers */
+.step:not(:last-child) {
+    position: relative;
+}
+
+/* Ensure all elements are properly aligned */
+.progress-indicator .step {
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Wizard Content */
+.wizard-content {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--captech-border);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-height: 600px;
+    margin-bottom: 2rem;
+}

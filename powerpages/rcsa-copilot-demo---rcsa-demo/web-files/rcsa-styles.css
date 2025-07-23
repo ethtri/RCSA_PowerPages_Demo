@@ -6,14 +6,22 @@
    ============================================ */
 :root {
   /* Primary Colors - CapTech Branding */
-  --captech-primary: #FEA002;
-  --captech-primary-light: #FFB347;
-  --captech-primary-dark: #E6900A;
+  --captech-primary: #0066CC;
+  --captech-primary-light: #3385D6;
+  --captech-primary-dark: #004499;
   
   /* Legacy FCB variables for compatibility */
-  --fcb-primary: #FEA002;
-  --fcb-primary-light: #FFB347;
-  --fcb-primary-dark: #E6900A;
+  --fcb-primary: #0066CC;
+  --fcb-primary-light: #3385D6;
+  --fcb-primary-dark: #004499;
+  
+  /* RCSA Design System Variables */
+  --captech-success: #0D7F3F;
+  --captech-warning: #CC6600;
+  --captech-danger: #CC0000;
+  --captech-light: #F5F5F5;
+  --captech-border: #E5E5E5;
+  --captech-orange: #FEA002;
   
   /* Status Colors */
   --fcb-success: #28A745;
